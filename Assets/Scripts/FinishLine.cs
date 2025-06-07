@@ -1,0 +1,23 @@
+using UnityEngine;
+
+public class FinishLine : MonoBehaviour
+{
+    public ScoreManager scoreManager;
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            PlayerMovement player = other.GetComponent<PlayerMovement>();
+            if (player != null && scoreManager != null)
+            {
+                float playerSpeed = Mathf.Min(player.currentSpeed + player.boostSpeed, GameSession.Instance.maxSpeed);
+                scoreManager.CalculateFinalScore(playerSpeed);
+                player.isFinished = true;
+
+                // Tu peux ici désactiver les contrôles et afficher un écran de fin
+                Debug.Log("Niveau terminé !");
+            }
+        }
+    }
+}
