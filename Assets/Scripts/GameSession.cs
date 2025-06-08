@@ -12,7 +12,7 @@ public class GameSession : MonoBehaviour
     public StatUpgradeData currentStatUpThisLevel; // Celle proposée pour ce niveau
 
     [Header("Stats")]
-    public int playerMoney = 0;
+    public int playerMoney;
     public float maxSpeed = 20f;             // Maximum forward speed
     public float baseSpeed = 5f;          // Initial speed
     public float accelerationDuration = 15f;

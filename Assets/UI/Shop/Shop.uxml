@@ -1,28 +1,23 @@
-<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <Style src="project://database/Assets/UI/Shop/Shop.uss?fileID=7433441132597879392&amp;guid=a7f3af1dcf79d4240a07d653b177c4a9&amp;type=3#Shop" />
-    
-    <ui:VisualElement class="shop-root">
-        
-        <ui:VisualElement class="money-bar">
-            <ui:Label name="money-label" text="💰 Monnaie : 0" class="money-label" />
+    <ui:VisualElement name="shop-container" class="shop-container" style="width: 100%; height: auto;">
+        <ui:VisualElement class="shop-root" style="align-items: stretch; justify-content: flex-start; padding-top: 14px; padding-right: 14px; padding-bottom: 14px; padding-left: 14px;">
+            <ui:VisualElement class="money-bar">
+                <ui:Label name="money-label" text="💰 Monnaie : 0" class="money-label" />
+            </ui:VisualElement>
+            <ui:Label text="Boutique" class="shop-title" />
+            <ui:VisualElement class="section">
+                <ui:Label text="🎒 Consommables" class="section-title" />
+                <ui:ScrollView name="consumable-container" class="baseContainer" />
+            </ui:VisualElement>
+            <ui:VisualElement class="section">
+                <ui:Label text="⚡ Boosts" class="section-title" />
+                <ui:ScrollView name="boost-container" class="baseContainer" />
+            </ui:VisualElement>
+            <ui:VisualElement class="section">
+                <ui:Label text="📈 Caractéristique unique" class="section-title" />
+                <ui:VisualElement name="stat-container" class="baseContainer" />
+            </ui:VisualElement>
         </ui:VisualElement>
-
-        <ui:Label text="Boutique" class="shop-title" />
-
-        <ui:VisualElement class="section">
-            <ui:Label text="🎒 Consommables" class="section-title" />
-            <ui:ScrollView name="consumable-container" class="baseContainer" />
-        </ui:VisualElement>
-
-        <ui:VisualElement class="section">
-            <ui:Label text="⚡ Boosts" class="section-title" />
-            <ui:ScrollView name="boost-container" class="baseContainer" />
-        </ui:VisualElement>
-
-        <ui:VisualElement class="section">
-            <ui:Label text="📈 Caractéristique unique" class="section-title" />
-            <ui:VisualElement name="stat-container" class="baseContainer" />
-        </ui:VisualElement>
-
     </ui:VisualElement>
 </ui:UXML>
