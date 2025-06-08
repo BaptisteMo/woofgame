@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/Shop/Shop.uss?fileID=7433441132597879392&amp;guid=a7f3af1dcf79d4240a07d653b177c4a9&amp;type=3#Shop" />
+    <ui:Label text="Consomable&#10;" />
+    <ui:VisualElement name="consumable-container" class="baseContainer" style="flex-grow: 1; flex-direction: row;" />
+    <ui:Label text="Boost" />
+    <ui:VisualElement name="boost-container" class="baseContainer" style="flex-grow: 1; flex-direction: row;" />
+    <ui:Label text="Caractéristique&#10;" />
+    <ui:VisualElement name="caracteristique-container" class="baseContainer" style="flex-grow: 1; flex-direction: row;" />
+</ui:UXML>

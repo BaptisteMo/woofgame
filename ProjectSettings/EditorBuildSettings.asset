@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Boutique/Boutique.unity
     guid: 43c4989cda7d24b128b2b6f2c25bd9d8
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_1_1.unity
+    guid: 30759ecb80cb442849ec665d2a0a22a5
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_1_2.unity
+    guid: 5fb718c46bda14173b787383d717afb4
+  - enabled: 1
+    path: Assets/Scenes/Levels/Level_1_3.unity
+    guid: 6a2faa5f3ba31447e8247b4b3e24ec45
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: fea8b58c90ad3466eb6c7410a9f5aa09, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

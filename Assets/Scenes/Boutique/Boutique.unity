@@ -119,6 +119,64 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &73588999
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 73589001}
+  - component: {fileID: 73589000}
+  m_Layer: 0
+  m_Name: ShopManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &73589000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73588999}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73e8582c0bdb74ea59d2afa82f60b905, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consumablePool:
+  - {fileID: 11400000, guid: 943f3e353fa674da3977b3ab7fd46d85, type: 2}
+  - {fileID: 11400000, guid: ce8bdb06d38de4eb1a35d4856449ec66, type: 2}
+  - {fileID: 11400000, guid: f7aa28bb0ac9e43f9aad14a7683b26dc, type: 2}
+  boostPool:
+  - {fileID: 11400000, guid: 5ff483f0d67d04829b38df9dd1ec22c2, type: 2}
+  - {fileID: 11400000, guid: a296dac80ea6545089b7e83ce4cfbf6c, type: 2}
+  - {fileID: 11400000, guid: da4908d84e4be47719e79d465fa94470, type: 2}
+  statUpgradePool:
+  - {fileID: 11400000, guid: 86302179f50bf4a469daf4b4a651303c, type: 2}
+  - {fileID: 11400000, guid: 7313355e9f90941eb91baa66b8cd4db3, type: 2}
+  - {fileID: 11400000, guid: edcad40005fab4ba2b6bcad8f1087949, type: 2}
+  ui: {fileID: 1738171767}
+  isAfterBoss: 0
+--- !u!4 &73589001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 73588999}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.8609958, y: -0.4244442, z: 12.124319}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &182957524
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +313,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 182957524}
   m_CullTransparentMesh: 1
+--- !u!1 &190530236
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 190530238}
+  - component: {fileID: 190530237}
+  m_Layer: 0
+  m_Name: GameSession
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &190530237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190530236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16a7a2c56eb0c470894904179a91816e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  availableStatUpgrades: []
+  unlockedStatUpgrades: []
+  boostPool:
+  - {fileID: 11400000, guid: 5ff483f0d67d04829b38df9dd1ec22c2, type: 2}
+  - {fileID: 11400000, guid: a296dac80ea6545089b7e83ce4cfbf6c, type: 2}
+  - {fileID: 11400000, guid: da4908d84e4be47719e79d465fa94470, type: 2}
+  currentStatUpThisLevel: {fileID: 0}
+  playerMoney: 0
+  maxSpeed: 20
+  baseSpeed: 5
+  accelerationDuration: 15
+  currentLevel: 1
+  nextSceneName: 
+--- !u!4 &190530238
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 190530236}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 972.40546, y: 577.19336, z: 1.0789795}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &319474370
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,6 +732,7 @@ GameObject:
   - component: {fileID: 1738171769}
   - component: {fileID: 1738171768}
   - component: {fileID: 1738171767}
+  - component: {fileID: 1738171772}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -636,6 +752,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801c58c3ce8044c36b1c652bd8c091a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  boostCardTemplate: {fileID: 9197481963319205126, guid: b44bd747db80646da853bca6991d1a86, type: 3}
+  statCardTemplate: {fileID: 0}
+  consoCardTemplate: {fileID: 0}
 --- !u!114 &1738171768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,6 +838,25 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1738171772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738171766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: 9510d98e3529443adbd643f6a4fa5741, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: 828547cfbc4234698b276fdfa59fba27, type: 3}
+  m_SortingOrder: 2
+  m_WorldSpaceSizeMode: 1
+  m_WorldSpaceWidth: 1920
+  m_WorldSpaceHeight: 1080
 --- !u!1 &2101911339
 GameObject:
   m_ObjectHideFlags: 0
@@ -848,3 +986,5 @@ SceneRoots:
   - {fileID: 2101911341}
   - {fileID: 1738171771}
   - {fileID: 319474373}
+  - {fileID: 73589001}
+  - {fileID: 190530238}
