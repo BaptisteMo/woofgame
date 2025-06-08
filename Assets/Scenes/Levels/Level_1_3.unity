@@ -273,10 +273,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   laneLockDuration: 0.4
-  boostSpeed: 0
   laneDistance: 10
   isFinished: 0
-  currentSpeed: 0
 --- !u!136 &89918851
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -436,12 +434,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a7a2c56eb0c470894904179a91816e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  availableStatUpgrades: []
+  unlockedStatUpgrades: []
+  boostPool: []
+  currentStatUpThisLevel: {fileID: 0}
   playerMoney: 0
   maxSpeed: 20
   baseSpeed: 5
   accelerationDuration: 15
   currentLevel: 1
   nextSceneName: 
+  wallHitMalus: 0
 --- !u!4 &162238330
 Transform:
   m_ObjectHideFlags: 0
@@ -4279,6 +4282,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202930961}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1261025582
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2212803423333731415, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
+      propertyPath: m_Name
+      value: WallBreakable
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066330539339961678, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.291546
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066330539339961678, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066330539339961678, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 34.741077
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066330539339961678, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071079
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066330539339961678, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066330539339961678, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.70710576
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066330539339961678, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066330539339961678, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066330539339961678, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 6066330539339961678, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
 --- !u!1 &1324241828
 GameObject:
   m_ObjectHideFlags: 0
@@ -4690,12 +4750,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a7a2c56eb0c470894904179a91816e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  availableStatUpgrades: []
+  unlockedStatUpgrades: []
+  boostPool: []
+  currentStatUpThisLevel: {fileID: 0}
   playerMoney: 0
   maxSpeed: 20
   baseSpeed: 5
   accelerationDuration: 15
   currentLevel: 1
   nextSceneName: 
+  wallHitMalus: 0
 --- !u!1 &1442726097
 GameObject:
   m_ObjectHideFlags: 0
@@ -7537,3 +7602,4 @@ SceneRoots:
   - {fileID: 1853731174544898700}
   - {fileID: 414695025}
   - {fileID: 162238330}
+  - {fileID: 1261025582}

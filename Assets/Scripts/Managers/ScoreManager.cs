@@ -50,31 +50,32 @@ public class ScoreManager : MonoBehaviour
             distanceText.text =distanceScore.ToString();
 
             // Vitesse actuelle : arrondie à 1 décimale
-            float totalSpeed = Mathf.Min( (player.currentSpeed + player.boostSpeed), GameSession.Instance.maxSpeed);
+            float totalSpeed = player.currentSpeed;
             speedText.text = totalSpeed.ToString("F1");
         }
     }
 
     // Appelé quand on atteint la ligne d’arrivée
-    public void CalculateFinalScore(float playerSpeed)
+    public void CalculateFinalScore()
     {
-        finalScore = Mathf.RoundToInt(traveled * playerSpeed);
-        
+        finalScore = Mathf.RoundToInt(traveled * player.currentSpeed);
+    
         Debug.Log("SCORE FINAL : " + finalScore);
 
         bool hasWon = finalScore >= scoreToWin;
-        
+
         ShowEndScreen(finalScore, hasWon);
         distanceTextFinish.text = distanceText.text;
-        speedTextFinish.text = speedText.text;
-        
-        requiredScore.text = "Victoire :" + scoreToWin.ToString();
+        speedTextFinish.text = player.currentSpeed.ToString("F1");
+
+        requiredScore.text = "Victoire : " + scoreToWin;
 
         if (hasWon)
             HandleWin();
         else
             HandleLose();
     }
+
     private void HandleWin()
     {
         // Ajouter l’argent au joueur

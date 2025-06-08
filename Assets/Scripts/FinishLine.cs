@@ -11,8 +11,8 @@ public class FinishLine : MonoBehaviour
             PlayerMovement player = other.GetComponent<PlayerMovement>();
             if (player != null && scoreManager != null)
             {
-                float playerSpeed = Mathf.Min(player.currentSpeed + player.boostSpeed, GameSession.Instance.maxSpeed);
-                scoreManager.CalculateFinalScore(playerSpeed);
+                float playerSpeed = Mathf.Min(player.currentSpeed, GameSession.Instance.maxSpeed);
+                scoreManager.CalculateFinalScore();
                 player.isFinished = true;
 
                 // Tu peux ici désactiver les contrôles et afficher un écran de fin

@@ -20,6 +20,10 @@ public class GameSession : MonoBehaviour
     [Header("Progression")]
     public int currentLevel = 1;
     public string nextSceneName = "";
+    
+    [Header("Bonus & Malus")]
+
+    public float wallHitMalus;
     void Awake()
     {
         // Singleton
