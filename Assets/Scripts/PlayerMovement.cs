@@ -20,9 +20,10 @@ public class PlayerMovement : MonoBehaviour
     private int currentLane = 0;
     private Vector3 targetPosition;
     public bool isFinished = false;
-
+    private Rigidbody rigidbody;
     void Start()
     {
+        rigidbody = GetComponent<Rigidbody>();
         baseSpeed = GameSession.Instance.baseSpeed;
         maxSpeed = GameSession.Instance.maxSpeed;
         accelerationDuration = GameSession.Instance.accelerationDuration;
@@ -37,16 +38,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isFinished) return;
 
-        if (currentSpeed < GameSession.Instance.maxSpeed)
-        {
-            accelerationTimer += Time.deltaTime;
+        // Toujours avancer dans le temps d'accélération
+        accelerationTimer += Time.deltaTime;
 
-            float t = Mathf.Clamp01(accelerationTimer / accelerationDuration);
-            currentSpeed = Mathf.Lerp(baseSpeed, GameSession.Instance.maxSpeed, t);
-        }
+        // Calcule le facteur d'interpolation (linéaire)
+        float t = Mathf.Clamp01(accelerationTimer / accelerationDuration);
 
+        // Interpolation linéaire de baseSpeed vers maxSpeed
+        currentSpeed = Mathf.Lerp(baseSpeed, GameSession.Instance.maxSpeed, t);
+
+        // Mouvement vers l’avant
         transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime, Space.World);
     }
+
 
 
 
@@ -60,13 +64,9 @@ public class PlayerMovement : MonoBehaviour
         // 🚀 Mouvement avant
 
         // ↔️ Mouvement latéral
-        Vector3 newPosition = new Vector3(targetPosition.x, transform.position.y, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, newPosition, Time.deltaTime * 10f);
-
-        if (Mathf.Abs(transform.position.x - targetPosition.x) < 0.01f)
-        {
-            transform.position = new Vector3(targetPosition.x, transform.position.y, transform.position.z);
-        }
+        
+        Vector3 newPosition = new Vector3(targetPosition.x, rigidbody.position.y, rigidbody.position.z);
+        rigidbody.MovePosition(Vector3.Lerp(rigidbody.position, newPosition, Time.deltaTime * 10f));
 
         // ⌨️ Input
         if (canSwitchLane && Input.GetKeyDown(KeyCode.LeftArrow) && currentLane > -1)
