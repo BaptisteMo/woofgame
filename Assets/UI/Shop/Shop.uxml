@@ -5,5 +5,5 @@
     <ui:Label text="Boost" />
     <ui:VisualElement name="boost-container" class="baseContainer" style="flex-grow: 1; flex-direction: row;" />
     <ui:Label text="Caractéristique&#10;" />
-    <ui:VisualElement name="caracteristique-container" class="baseContainer" style="flex-grow: 1; flex-direction: row;" />
+    <ui:VisualElement name="stat-container" class="baseContainer" style="flex-grow: 1; flex-direction: row;" />
 </ui:UXML>
