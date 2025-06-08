@@ -18,6 +18,7 @@ public class ShopUI : MonoBehaviour
     public VisualTreeAsset boostCardTemplate;
     public VisualTreeAsset statCardTemplate;
     public VisualTreeAsset consoCardTemplate;
+    private Label moneyLabel;
 
 
     void OnEnable()
@@ -27,6 +28,8 @@ public class ShopUI : MonoBehaviour
         consumableContainer = root.Q<VisualElement>("consumable-container");
         boostContainer = root.Q<VisualElement>("boost-container");
         statContainer = root.Q<VisualElement>("stat-container");
+        moneyLabel = GetComponent<UIDocument>().rootVisualElement.Q<Label>("money-label");
+        UpdateMoneyUI();
 
       //  DisplayShop(GameSession.Instance.boostPool);
     }
@@ -36,9 +39,10 @@ public class ShopUI : MonoBehaviour
         boostContainer.Clear();
         statContainer.Clear();
         consumableContainer.Clear();
+        
         foreach (var consumable in consumables)
         {
-            var card = boostCardTemplate.Instantiate();
+            var card = consoCardTemplate.Instantiate();
 
             card.Q<Label>("boost-name").text = consumable.consumableName;
             card.Q<Label>("boost-price").text = consumable.price + " 💰";
@@ -73,8 +77,10 @@ public class ShopUI : MonoBehaviour
                 if (GameSession.Instance.playerMoney >= boost.price)
                 {
                     GameSession.Instance.playerMoney -= boost.price;
-               // TODO     GameSession.Instance.ApplyBoost(boost);
-                    buyButton.SetEnabled(false); // désactive le bouton après achat
+                  // TODO  GameSession.Instance.ApplyBoost(boost);
+
+                    buyButton.SetEnabled(false);
+                    UpdateMoneyUI(); // <----- met à jour l'affichage !
                 }
             };
 
@@ -82,7 +88,7 @@ public class ShopUI : MonoBehaviour
         }
         if (stat != null && !GameSession.Instance.unlockedStatUpgrades.Contains(stat))
         {
-            var card = boostCardTemplate.Instantiate();
+            var card = statCardTemplate.Instantiate();
 
             card.Q<Label>("boost-name").text = stat.statName;
             card.Q<Label>("boost-price").text = stat.price + " 💰";
@@ -108,6 +114,15 @@ public class ShopUI : MonoBehaviour
             statContainer.Add(card);
         }
     }
+    
+    public void UpdateMoneyUI()
+    {
+        if (moneyLabel != null)
+        {
+            moneyLabel.text = "💰 Monnaie : " + GameSession.Instance.playerMoney;
+        }
+    }
+
     public void OnClick_Continuer()
     {
         string nextScene = GameSession.Instance.nextSceneName;
@@ -121,4 +136,5 @@ public class ShopUI : MonoBehaviour
             Debug.LogWarning("Aucune scène suivante définie !");
         }
     }
+    
 }

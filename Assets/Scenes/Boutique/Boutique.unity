@@ -753,8 +753,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boostCardTemplate: {fileID: 9197481963319205126, guid: b44bd747db80646da853bca6991d1a86, type: 3}
-  statCardTemplate: {fileID: 0}
-  consoCardTemplate: {fileID: 0}
+  statCardTemplate: {fileID: 9197481963319205126, guid: 2b871aac51eed4e238df5a856d69017f, type: 3}
+  consoCardTemplate: {fileID: 9197481963319205126, guid: 4a70c62d9e60440c1873cffb468a5a5f, type: 3}
 --- !u!114 &1738171768
 MonoBehaviour:
   m_ObjectHideFlags: 0

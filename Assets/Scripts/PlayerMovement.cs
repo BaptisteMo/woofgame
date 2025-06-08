@@ -77,6 +77,15 @@ public class PlayerMovement : MonoBehaviour
     {
         boostSpeed += amount;
     }
+    public void DecreaseSpeed(float amount)
+    {
+        boostSpeed -= amount;
+    }
+
+    public void ResetSpeed()
+    {
+        currentSpeed = GameSession.Instance.baseSpeed;
+    }
 
     void UpdateTargetPosition()
     {
