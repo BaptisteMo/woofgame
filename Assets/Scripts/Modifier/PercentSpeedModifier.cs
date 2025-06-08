@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PercentSpeedModifier : MonoBehaviour
 {
-    public float malusAmount = 1f; // How much to boost the speed
+    public float malusAmount; // How much to boost the speed
 
     private void OnTriggerEnter(Collider other)
     {
@@ -15,7 +15,6 @@ public class PercentSpeedModifier : MonoBehaviour
             {
                 player.ModifyPercentSpeed(malusAmount);
             }
-            
          Destroy(gameObject);
         }
     }
