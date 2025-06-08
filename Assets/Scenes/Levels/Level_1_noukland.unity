@@ -2578,7 +2578,7 @@ MonoBehaviour:
   accelerationDuration: 15
   currentLevel: 1
   nextSceneName: 
-  wallHitMalus: 0
+  wallHitMalus: 5
 --- !u!4 &162238330
 Transform:
   m_ObjectHideFlags: 0
