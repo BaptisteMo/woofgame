@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class GameSession : MonoBehaviour
 {
+    
     public static GameSession Instance;
 
     [Header("Stats")]
@@ -12,7 +13,7 @@ public class GameSession : MonoBehaviour
 
     [Header("Progression")]
     public int currentLevel = 1;
-
+    public string nextSceneName = "";
     void Awake()
     {
         // Singleton

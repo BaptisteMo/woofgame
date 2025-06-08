@@ -3,12 +3,17 @@ using UnityEngine.SceneManagement;
 
 public class BoutiqueUI : MonoBehaviour
 {
-    public void LaunchNextLevel()
+    public void OnClick_Continuer()
     {
-        int nextLevel = GameSession.Instance.currentLevel + 1;
-        GameSession.Instance.currentLevel = nextLevel;
+        string nextScene = GameSession.Instance.nextSceneName;
 
-        string sceneName = "Level_" + nextLevel;
-        SceneManager.LoadScene(sceneName);
+        if (!string.IsNullOrEmpty(nextScene))
+        {
+            SceneManager.LoadScene(nextScene);
+        }
+        else
+        {
+            Debug.LogWarning("Aucune scène suivante définie !");
+        }
     }
 }

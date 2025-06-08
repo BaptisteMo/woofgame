@@ -419,7 +419,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1738171767}
         m_TargetAssemblyTypeName: BoutiqueUI, Assembly-CSharp
-        m_MethodName: LaunchNextLevel
+        m_MethodName: OnClick_Continuer
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

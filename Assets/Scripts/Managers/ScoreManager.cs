@@ -6,11 +6,13 @@ using UnityEngine.Serialization; // si tu utilises TextMeshPro
 
 public class ScoreManager : MonoBehaviour
 {
+    
      // Le joueur à suivre
     public float distanceScore = 0f;
     public float finalScore = 0f;
     public int scoreToWin = 1500;
 
+    public string nextLevel;
     private float startZ;
 
     public GameObject endScreenPanel;
@@ -77,16 +79,16 @@ public class ScoreManager : MonoBehaviour
     {
         // Ajouter l’argent au joueur
         //TODO
-
+        GameSession.Instance.nextSceneName = nextLevel;
         // Charger la scène boutique après 1s
-        StartCoroutine(LoadSceneAfterDelay("Boutique", 1f));
+        StartCoroutine(LoadSceneAfterDelay("Boutique", 3f));
     }
 
 
     private void HandleLose()
     {
         GameSession.Instance.ResetSession();
-        StartCoroutine(LoadSceneAfterDelay("MainMenu", 1f));
+        StartCoroutine(LoadSceneAfterDelay("MainMenu", 3f));
     }
     
     private IEnumerator LoadSceneAfterDelay(string sceneName, float delay)
