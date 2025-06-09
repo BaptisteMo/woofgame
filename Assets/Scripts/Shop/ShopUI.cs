@@ -15,10 +15,9 @@ public class ShopUI : MonoBehaviour
     private VisualElement boostContainer;
 
     public VisualTreeAsset boostCardTemplate;
-   
     public VisualTreeAsset consoCardTemplate;
     private Label moneyLabel;
-
+    
 
     void OnEnable()
     {
@@ -32,7 +31,7 @@ public class ShopUI : MonoBehaviour
         retryButton.RegisterCallback<ClickEvent>(OnClick_Retry);
         
         moneyLabel = GetComponent<UIDocument>().rootVisualElement.Q<Label>("money-label");
-       // UpdateMoneyUI();
+       UpdateMoneyUI();
 
       //  DisplayShop(GameSession.Instance.boostPool);
     }
@@ -58,7 +57,6 @@ public class ShopUI : MonoBehaviour
                 if (GameSession.Instance.playerMoney >= consumable.price)
                 {
                     GameSession.Instance.playerMoney -= consumable.price;
-                    // TODO     GameSession.Instance.ApplyBoost(boost);
                     buyButton.SetEnabled(false); // désactive le bouton après achat
                 }
             };
@@ -80,10 +78,10 @@ public class ShopUI : MonoBehaviour
                 if (GameSession.Instance.playerMoney >= boost.price)
                 {
                     GameSession.Instance.playerMoney -= boost.price;
-                  // TODO  GameSession.Instance.ApplyBoost(boost);
+                    BoostManager.Instance.RegisterBoost(boost); // ✅ Ajout à la liste
 
                     buyButton.SetEnabled(false);
-                //    UpdateMoneyUI(); // <----- met à jour l'affichage !
+                    UpdateMoneyUI(); // <----- met à jour l'affichage !
                 }
             };
 
@@ -125,7 +123,6 @@ public class ShopUI : MonoBehaviour
             Debug.LogWarning("Aucune scène suivante définie !");
         }
     }
-    
-    
+
     
 }

@@ -42,9 +42,12 @@ public class GameSession : MonoBehaviour
         playerMoney = 0;
         baseSpeed = 5f;
         maxSpeed = 20f;
+        accelerationDuration = 15f;
         currentLevel = 1;
+
+        BoostManager.Instance.ResetBoosts(); // ✅ Reset des boosts
     }
-    
+
 
     public void ApplyStatUpgrade(StatUpgradeData stat)
     {

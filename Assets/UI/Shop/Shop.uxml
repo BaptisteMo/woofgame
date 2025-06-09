@@ -1,18 +1,22 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <Style src="project://database/Assets/UI/Shop/Shop.uss?fileID=7433441132597879392&amp;guid=a7f3af1dcf79d4240a07d653b177c4a9&amp;type=3#Shop" />
     <ui:VisualElement name="shop-container" class="shop-container" style="width: 80%; height: 90%;">
-        <ui:VisualElement class="shop-root" style="align-items: stretch; justify-content: flex-start; padding-top: 14px; padding-right: 14px; padding-bottom: 14px; padding-left: 14px;">
-            <ui:VisualElement class="money-bar">
-                <ui:Label name="money-label" text="💰 Monnaie : 0" class="money-label" />
+        <ui:VisualElement name="VisualElement" class="shop-root" style="align-items: stretch; justify-content: flex-start; padding-top: 14px; padding-right: 14px; padding-bottom: 14px; padding-left: 14px;">
+            <ui:VisualElement class="money-bar" style="justify-content: space-between; height: 80px;">
+                <ui:VisualElement style="flex-grow: 0; flex-direction: row;">
+                    <ui:Button text="Prochain niveau" name="next-level" style="height: initial; width: 368px;" />
+                    <ui:Button text="Retry" name="retry" style="height: initial; text-overflow: ellipsis; width: 248px;" />
+                </ui:VisualElement>
+                <ui:Label name="money-label" text="Monnaie : 0" class="money-label" />
             </ui:VisualElement>
-            <ui:Label text="Boutique" class="shop-title" />
-            <ui:VisualElement class="section">
-                <ui:Label text="🎒 Consommables" class="section-title" />
-                <ui:ScrollView name="consumable-container" mode="Horizontal" class="baseContainer" />
+            <ui:Label text="Boutique" class="shop-title" style="font-size: 60px;" />
+            <ui:VisualElement class="section" style="flex-grow: 1; margin-top: 20px; margin-bottom: 20px;">
+                <ui:Label text="Consommables" class="section-title" style="font-size: 30px;" />
+                <ui:ScrollView name="consumable-container" mode="Horizontal" class="baseContainer" style="flex-grow: 1;" />
             </ui:VisualElement>
-            <ui:VisualElement class="section">
-                <ui:Label text="⚡ Boosts" class="section-title" />
-                <ui:ScrollView name="boost-container" mode="Horizontal" class="baseContainer" />
+            <ui:VisualElement class="section" style="flex-grow: 1;">
+                <ui:Label text="Boosts" class="section-title" style="font-size: 30px;" />
+                <ui:ScrollView name="boost-container" mode="Horizontal" class="baseContainer" style="flex-grow: 1;" />
             </ui:VisualElement>
         </ui:VisualElement>
     </ui:VisualElement>

@@ -4,9 +4,22 @@ using UnityEngine;
 public class BoostData : ScriptableObject
 {
     public string boostName;
-   //TODO public Sprite icon;
     public int price;
     public string description;
-    public enum BoostType { WallResistance, CoinLuck, Other }
+    public enum BoostType { WallResistance, CoinLuck, Other, GenerateOnMaxSpeed, }
     public BoostType type;
+
+    public ScriptableObject effect; // doit implémenter IBoostEffect
+
+    public void Apply(PlayerMovement player)
+    {
+        if (effect is IEffect boostEffect)
+        {
+            boostEffect.Apply(player);
+        }
+        else
+        {
+            Debug.LogError($"L'effet du boost {boostName} n'implémente pas IBoostEffect !");
+        }
+    }
 }

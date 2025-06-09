@@ -24,7 +24,7 @@ public class ScoreManager : MonoBehaviour
 
     public TextMeshProUGUI distanceText;
     public TextMeshProUGUI speedText;
-    
+    public TextMeshProUGUI playerGold;
     public TextMeshProUGUI distanceTextFinish;
     public TextMeshProUGUI speedTextFinish;
 
@@ -52,6 +52,7 @@ public class ScoreManager : MonoBehaviour
             // Vitesse actuelle : arrondie à 1 décimale
             float totalSpeed = player.currentSpeed;
             speedText.text = totalSpeed.ToString("F1");
+            playerGold.text ="Gold :" + GameSession.Instance.playerMoney.ToString();
         }
     }
 

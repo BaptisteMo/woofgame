@@ -12,10 +12,7 @@ public class ShopManager : MonoBehaviour
     
 
     [Header("UI")]
-    public ShopUI ui;
-
-    [SerializeField] private UIDocument uidoc;
-    private VisualElement root;
+    public ShopUI ui; 
     private List<ConsumableData> currentConsumables;
     private List<BoostData> currentBoosts;
   
@@ -30,7 +27,7 @@ public class ShopManager : MonoBehaviour
     public void GenerateShop()
     {
         // Sécurité : vérifie que les listes ne sont pas vides
-        if (consumablePool.Count < boostNumber || boostPool.Count < consumableNumber)
+        if (consumablePool.Count < 1 || boostPool.Count < 1)
         {
             Debug.LogError("🛑 Le pool de consommables ou de boosts est vide !");
             return;

@@ -30,6 +30,8 @@ public class PlayerMovement : MonoBehaviour
 
         currentSpeed = baseSpeed;
         targetSpeed = maxSpeed;
+        
+        BoostManager.Instance.ApplyBoostsToPlayer(this); // ✅ Application des boosts
 
         UpdateTargetPosition();
     }
@@ -150,4 +152,15 @@ public class PlayerMovement : MonoBehaviour
 
         UpdateTargetPosition();
     }
+    
+    public bool CurrentSpeedIsMax()
+    {
+        if (currentSpeed >= GameSession.Instance.maxSpeed)
+            return true;
+        else
+        {
+            return false;
+        }
+    }
+
 }
