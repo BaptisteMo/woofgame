@@ -1,8 +1,14 @@
+using System;
 using UnityEngine;
 
 public class FinishLine : MonoBehaviour
 {
     public ScoreManager scoreManager;
+
+    private void Start()
+    {
+        scoreManager = FindFirstObjectByType<ScoreManager>();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
