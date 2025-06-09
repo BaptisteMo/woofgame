@@ -20,17 +20,18 @@ public class ScoreManager : MonoBehaviour
     private float distanceAccumulator = 0f;
 
     public GameObject endScreenPanel;
+    
     public TextMeshProUGUI requiredScore;
     public TextMeshProUGUI resultText;
     public TextMeshProUGUI victoryMessage;
 
     public float scoreAnimationDuration = 2f;
 
-    public TextMeshProUGUI distanceText;
-    public TextMeshProUGUI speedText;
+    public TextMeshProUGUI distnanceOnLevel;
+    public TextMeshProUGUI speedOnLevel;
     public TextMeshProUGUI playerGold;
-    public TextMeshProUGUI distanceTextFinish;
-    public TextMeshProUGUI speedTextFinish;
+    public TextMeshProUGUI distanceFinishScreen;
+    public TextMeshProUGUI speedFinishScreen;
 
      [SerializeField] private PlayerMovement player;
     private float traveled;
@@ -38,9 +39,22 @@ public class ScoreManager : MonoBehaviour
 
     void Start()
     {
-        
+        player = FindFirstObjectByType<PlayerMovement>();
         startZ = player.transform.position.z;
         lastZ = startZ;
+        
+        distnanceOnLevel = FindTextByName("DistanceOnLevel");
+        speedOnLevel = FindTextByName("SpeedOnLevel");
+        playerGold = FindTextByName("PlayerGold");
+        
+        var endScreen = transform.Find("UI_Level/FinishScreen");
+
+        distanceFinishScreen = FindTextByName("DistanceFinishScreen");
+        speedFinishScreen = FindTextByName("SpeedFinishScreen");
+        resultText = FindTextByName("FinalResult");
+        requiredScore = FindTextByName("Requis");
+        victoryMessage = FindTextByName("Victorytext");
+
     }
 
     void Update()
@@ -68,17 +82,31 @@ public class ScoreManager : MonoBehaviour
 
             lastZ = currentZ;
 
-            distanceText.text = distanceScore.ToString();
+            distnanceOnLevel.text = distanceScore.ToString();
             
 
             // Vitesse actuelle : arrondie à 1 décimale
             float totalSpeed = player.currentSpeed;
             
-            speedText.text = totalSpeed.ToString("F1");
+            speedOnLevel.text = totalSpeed.ToString("F1");
             playerGold.text ="Gold :" + GameSession.Instance.playerMoney.ToString();
         }
         
     }
+
+    private TextMeshProUGUI FindTextByName(string name)
+    {
+        var texts = GameObject.FindObjectsOfType<TextMeshProUGUI>(true); // true = inclut les désactivés
+        foreach (var txt in texts)
+        {
+            if (txt.name == name)
+                return txt;
+        }
+
+        Debug.LogWarning($"Text UI '{name}' non trouvé dans la scène");
+        return null;
+    }
+
 
     // Appelé quand on atteint la ligne d’arrivée
     public void CalculateFinalScore()
@@ -90,8 +118,8 @@ public class ScoreManager : MonoBehaviour
         bool hasWon = finalScore >= scoreToWin;
 
         ShowEndScreen(finalScore, hasWon);
-        distanceTextFinish.text = distanceText.text;
-        speedTextFinish.text = player.currentSpeed.ToString("F1");
+        distanceFinishScreen.text = distnanceOnLevel.text;
+        speedFinishScreen.text = player.currentSpeed.ToString("F1");
 
         requiredScore.text = "Victoire : " + scoreToWin;
 

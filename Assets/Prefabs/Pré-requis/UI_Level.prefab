@@ -570,7 +570,7 @@ GameObject:
   - component: {fileID: 7248886569885506007}
   - component: {fileID: 9190263788942700630}
   m_Layer: 5
-  m_Name: DistanceFinish
+  m_Name: DistanceFinishScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -706,7 +706,7 @@ GameObject:
   - component: {fileID: 8109109373410833223}
   - component: {fileID: 4061362370183516771}
   m_Layer: 5
-  m_Name: Speed
+  m_Name: SpeedOnLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1000,7 +1000,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 826, y: 467}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2494234858174046336
@@ -1058,10 +1058,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 44.75
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1194,10 +1194,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 46.4
+  m_fontSize: 44.75
   m_fontSizeBase: 46.4
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -1325,7 +1325,7 @@ GameObject:
   - component: {fileID: 8923377864317317120}
   - component: {fileID: 2266392085360904011}
   m_Layer: 5
-  m_Name: SpeedFinish
+  m_Name: SpeedFinishScreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1461,7 +1461,7 @@ GameObject:
   - component: {fileID: 5901762074497413165}
   - component: {fileID: 9106925665471950548}
   m_Layer: 5
-  m_Name: Distance
+  m_Name: DistanceOnLevel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
