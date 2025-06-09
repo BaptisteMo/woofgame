@@ -21,6 +21,8 @@ public class GameSession : MonoBehaviour
     public string nextSceneName = "";
     public string RetryLevel = "";
     [Header("Bonus & Malus")]
+    
+    public bool doubleDistanceOnMaxSpeed = false;
 
     public float wallHitMalus;
     void Awake()

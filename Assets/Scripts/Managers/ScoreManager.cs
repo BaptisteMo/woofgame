@@ -12,8 +12,12 @@ public class ScoreManager : MonoBehaviour
     public float finalScore = 0f;
     public int scoreToWin = 1500;
 
+    
+    
     public string nextLevel;
     private float startZ;
+    private float lastZ;
+    private float distanceAccumulator = 0f;
 
     public GameObject endScreenPanel;
     public TextMeshProUGUI requiredScore;
@@ -36,30 +40,50 @@ public class ScoreManager : MonoBehaviour
     {
         
         startZ = player.transform.position.z;
+        lastZ = startZ;
     }
 
     void Update()
     {
-        // Score distance = position actuelle - position de départ
-        traveled = player.transform.position.z - startZ;
-        distanceScore = Mathf.RoundToInt(traveled); // pour l'affichage uniquement
         
         if (player != null)
         {
-            // Distance : arrondie à l'entier
-            distanceText.text =distanceScore.ToString();
+            float currentZ = player.transform.position.z;
+            float deltaZ = currentZ - lastZ;
+
+            if (deltaZ > 0f)
+            {
+                int multiplier = player.CurrentSpeedIsMax() && GameSession.Instance.doubleDistanceOnMaxSpeed ? 2 : 1;
+
+                distanceAccumulator += deltaZ * multiplier;
+
+                // Si on atteint au moins 1 point de distance
+                if (distanceAccumulator >= 1f)
+                {
+                    int gained = Mathf.FloorToInt(distanceAccumulator);
+                    distanceScore += gained;
+                    distanceAccumulator -= gained;
+                }
+            }
+
+            lastZ = currentZ;
+
+            distanceText.text = distanceScore.ToString();
+            
 
             // Vitesse actuelle : arrondie à 1 décimale
             float totalSpeed = player.currentSpeed;
+            
             speedText.text = totalSpeed.ToString("F1");
             playerGold.text ="Gold :" + GameSession.Instance.playerMoney.ToString();
         }
+        
     }
 
     // Appelé quand on atteint la ligne d’arrivée
     public void CalculateFinalScore()
     {
-        finalScore = Mathf.RoundToInt(traveled * player.currentSpeed);
+        finalScore = Mathf.RoundToInt(distanceScore * player.currentSpeed);
     
         Debug.Log("SCORE FINAL : " + finalScore);
 

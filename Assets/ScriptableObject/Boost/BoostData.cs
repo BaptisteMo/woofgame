@@ -6,7 +6,7 @@ public class BoostData : ScriptableObject
     public string boostName;
     public int price;
     public string description;
-    public enum BoostType { WallResistance, CoinLuck, Other, GenerateOnMaxSpeed, }
+    public enum BoostType { WallResistance, CoinLuck, Other, GenerateOnMaxSpeed, MaxSpeed}
     public BoostType type;
 
     public ScriptableObject effect; // doit implémenter IBoostEffect

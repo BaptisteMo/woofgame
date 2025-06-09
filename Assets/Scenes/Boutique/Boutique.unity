@@ -155,10 +155,10 @@ MonoBehaviour:
   boostPool:
   - {fileID: 11400000, guid: 5ff483f0d67d04829b38df9dd1ec22c2, type: 2}
   - {fileID: 11400000, guid: a296dac80ea6545089b7e83ce4cfbf6c, type: 2}
-  boostNumber: 2
+  - {fileID: 11400000, guid: da4908d84e4be47719e79d465fa94470, type: 2}
+  boostNumber: 3
   consumableNumber: 3
   ui: {fileID: 431985468}
-  uidoc: {fileID: 0}
   isAfterBoss: 0
 --- !u!4 &73589001
 Transform:
@@ -256,6 +256,7 @@ MonoBehaviour:
   currentLevel: 1
   nextSceneName: Level_1_noukland
   RetryLevel: Level_1_noukistan
+  doubleDistanceOnMaxSpeed: 0
   wallHitMalus: 0
 --- !u!4 &190530238
 Transform:
