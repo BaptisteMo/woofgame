@@ -21,7 +21,8 @@ public class GameSession : MonoBehaviour
     public string nextSceneName = "";
     public string RetryLevel = "";
     [Header("Bonus & Malus")]
-    
+    public float coinDropBonusPercent = 0f;
+
     public bool doubleDistanceOnMaxSpeed = false;
 
     public float wallHitMalus;
