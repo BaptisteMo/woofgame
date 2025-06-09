@@ -157,6 +157,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a296dac80ea6545089b7e83ce4cfbf6c, type: 2}
   - {fileID: 11400000, guid: da4908d84e4be47719e79d465fa94470, type: 2}
   - {fileID: 11400000, guid: 551629cb7e32d43be8b974b71b8bb023, type: 2}
+  - {fileID: 11400000, guid: f859958e9bd614f5f8b2c2925d0406eb, type: 2}
   boostNumber: 4
   consumableNumber: 3
   ui: {fileID: 431985468}
@@ -257,6 +258,7 @@ MonoBehaviour:
   currentLevel: 1
   nextSceneName: Level_1_noukland
   RetryLevel: Level_1_noukistan
+  coinDropBonusPercent: 0
   doubleDistanceOnMaxSpeed: 0
   wallHitMalus: 0
 --- !u!4 &190530238
