@@ -5,9 +5,8 @@ public class GameSession : MonoBehaviour
 {
     
     public static GameSession Instance;
-    public List<StatUpgradeData> availableStatUpgrades;  // Le pool restant
-    public List<StatUpgradeData> unlockedStatUpgrades;   // Celles achetées
-    public List<BoostData> boostPool;
+   
+   // public List<BoostData> boostPool;
 
     public StatUpgradeData currentStatUpThisLevel; // Celle proposée pour ce niveau
 
@@ -20,7 +19,7 @@ public class GameSession : MonoBehaviour
     [Header("Progression")]
     public int currentLevel = 1;
     public string nextSceneName = "";
-    
+    public string RetryLevel = "";
     [Header("Bonus & Malus")]
 
     public float wallHitMalus;
@@ -46,19 +45,7 @@ public class GameSession : MonoBehaviour
         currentLevel = 1;
     }
     
-    public void InitStatUpgrades(List<StatUpgradeData> fullPool)
-    {
-        availableStatUpgrades = new List<StatUpgradeData>(fullPool);
-        unlockedStatUpgrades = new List<StatUpgradeData>();
-        currentStatUpThisLevel = null;
-    }
-    public void GenerateStatUpForLevel()
-    {
-        if (currentStatUpThisLevel != null || availableStatUpgrades.Count == 0) return;
 
-        int index = Random.Range(0, availableStatUpgrades.Count);
-        currentStatUpThisLevel = availableStatUpgrades[index];
-    }
     public void ApplyStatUpgrade(StatUpgradeData stat)
     {
         maxSpeed += stat.speedBonus;

@@ -23,17 +23,21 @@ public class ShopUI : MonoBehaviour
     void OnEnable()
     {
         var root = GetComponent<UIDocument>().rootVisualElement;
-
+        var nextLevelButton = root.Q<VisualElement>("next-level");
+        var retryButton = root.Q<VisualElement>("retry");
         consumableContainer = root.Q<VisualElement>("consumable-container");
         boostContainer = root.Q<VisualElement>("boost-container");
       
+        nextLevelButton.RegisterCallback<ClickEvent>(OnClick_Continuer);
+        retryButton.RegisterCallback<ClickEvent>(OnClick_Retry);
+        
         moneyLabel = GetComponent<UIDocument>().rootVisualElement.Q<Label>("money-label");
        // UpdateMoneyUI();
 
       //  DisplayShop(GameSession.Instance.boostPool);
     }
 
-    public void DisplayShop(List<BoostData> boosts, List<ConsumableData> consumables, StatUpgradeData stat)
+    public void DisplayShop(List<BoostData> boosts, List<ConsumableData> consumables)
     {
         boostContainer.Clear();
        
@@ -95,7 +99,7 @@ public class ShopUI : MonoBehaviour
         }
     }
 
-    public void OnClick_Continuer()
+    public void OnClick_Continuer(ClickEvent evt)
     {
         string nextScene = GameSession.Instance.nextSceneName;
 
@@ -108,5 +112,20 @@ public class ShopUI : MonoBehaviour
             Debug.LogWarning("Aucune scène suivante définie !");
         }
     }
+    public void OnClick_Retry(ClickEvent evt)
+    {
+        string nextScene = GameSession.Instance.RetryLevel;
+
+        if (!string.IsNullOrEmpty(nextScene))
+        {
+            SceneManager.LoadScene(nextScene);
+        }
+        else
+        {
+            Debug.LogWarning("Aucune scène suivante définie !");
+        }
+    }
+    
+    
     
 }

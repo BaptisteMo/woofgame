@@ -11,8 +11,6 @@ public class ShopItemUI : MonoBehaviour
 
     private ConsumableData consumable;
     private BoostData boost;
-    private StatUpgradeData stat;
-
     public void Setup(ConsumableData data)
     {
         consumable = data;
@@ -33,15 +31,7 @@ public class ShopItemUI : MonoBehaviour
         buyButton.onClick.AddListener(() => BuyBoost());
     }
 
-    public void Setup(StatUpgradeData data)
-    {
-        stat = data;
-        nameText.text = data.statName;
-     //   iconImage.sprite = data.icon;
-        priceText.text = data.price + "💰";
-
-        buyButton.onClick.AddListener(() => BuyStatUpgrade());
-    }
+   
 
     void BuyConsumable()
     {
@@ -63,17 +53,5 @@ public class ShopItemUI : MonoBehaviour
         }
     }
 
-    void BuyStatUpgrade()
-    {
-        if (GameSession.Instance.playerMoney >= stat.price)
-        {
-            GameSession.Instance.playerMoney -= stat.price;
-
-            GameSession.Instance.ApplyStatUpgrade(stat);
-            GameSession.Instance.unlockedStatUpgrades.Add(stat);
-            GameSession.Instance.availableStatUpgrades.Remove(stat);
-
-            Destroy(gameObject);
-        }
-    }
+  
 }
