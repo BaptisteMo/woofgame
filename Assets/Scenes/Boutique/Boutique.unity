@@ -156,7 +156,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5ff483f0d67d04829b38df9dd1ec22c2, type: 2}
   - {fileID: 11400000, guid: a296dac80ea6545089b7e83ce4cfbf6c, type: 2}
   - {fileID: 11400000, guid: da4908d84e4be47719e79d465fa94470, type: 2}
-  boostNumber: 3
+  - {fileID: 11400000, guid: 551629cb7e32d43be8b974b71b8bb023, type: 2}
+  boostNumber: 4
   consumableNumber: 3
   ui: {fileID: 431985468}
   isAfterBoss: 0

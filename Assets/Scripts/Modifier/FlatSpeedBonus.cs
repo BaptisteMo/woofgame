@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class FlatSpeedBonus : MonoBehaviour
@@ -14,6 +15,7 @@ public class FlatSpeedBonus : MonoBehaviour
             if (player != null)
             {
                 player.BoostSpeed(bonusAmount);
+                Debug.Log("Bonus took");
             }
 
             // Destroy the bonus object after pickup

@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/Level_1_noukistan.unity
     guid: 0473201bd91864ec09a656e2153a19cb
   - enabled: 1
-    path: Assets/Scenes/Levels/Level_1_noukland.unity
+    path: Assets/Scenes/Levels/Level_2.unity
     guid: 5d7cba49c5eaeb847bb3cc279a7910c6
   m_configObjects:
     com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: fea8b58c90ad3466eb6c7410a9f5aa09, type: 2}
