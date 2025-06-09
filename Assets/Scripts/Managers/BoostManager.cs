@@ -5,7 +5,7 @@ public class BoostManager : MonoBehaviour
 {
     public static BoostManager Instance;
 
-    private List<BoostData> acquiredBoosts = new();
+    public List<BoostData> acquiredBoosts = new();
 
     private void Awake()
     {
