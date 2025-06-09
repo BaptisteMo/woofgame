@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3627754671596418399}
   - component: {fileID: 4556494841614136434}
   m_Layer: 0
-  m_Name: Boost Vitesse Flat
+  m_Name: Boost Vitesse Flat 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
