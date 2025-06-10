@@ -1426,7 +1426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a7a2c56eb0c470894904179a91816e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStatUpThisLevel: {fileID: 0}
+  sceneToReset: Level_1_noukistan
   playerMoney: 0
   maxSpeed: 20
   baseSpeed: 5
@@ -14831,13 +14831,33 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2212803423333731415, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1493659947}
   m_SourcePrefab: {fileID: 100100000, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
 --- !u!4 &1493659945 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6066330539339961678, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
   m_PrefabInstance: {fileID: 1493659944}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1493659946 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2212803423333731415, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
+  m_PrefabInstance: {fileID: 1493659944}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1493659947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493659946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ce42ea95277c46d8acae45df72143e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1517416515
 GameObject:
   m_ObjectHideFlags: 0

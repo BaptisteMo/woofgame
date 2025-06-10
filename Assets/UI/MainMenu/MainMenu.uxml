@@ -1,0 +1,12 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/MainMenu/MainMenu.uss?fileID=7433441132597879392&amp;guid=e5490b2d931f6485ea52a1cfa0ee63a5&amp;type=3#MainMenu" />
+    <ui:VisualElement class="main-menu-root">
+        <ui:Label text="🏁 MENU PRINCIPAL" class="main-title" />
+        <ui:VisualElement class="menu-section">
+            <ui:Label text="Choisir une scène :" class="menu-label" />
+            <ui:DropdownField name="scene-dropdown" />
+            <ui:Button name="play-scene-button" text="Lancer la scène" class="menu-button" />
+        </ui:VisualElement>
+        <ui:Button name="go-shop-button" text="Accéder à la Boutique" class="menu-button" />
+    </ui:VisualElement>
+</ui:UXML>

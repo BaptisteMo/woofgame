@@ -1,16 +1,19 @@
 using UnityEngine;
 
-public class WallCollision : MonoBehaviour
+public class DeathWall : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
+        if (other.CompareTag("Player"))
+        {
+            PlayerMovement player = other.GetComponent<PlayerMovement>();
+            if (player != null)
+            {
+                GameSession.Instance.TriggerRunEnd();
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+                // Tu peux ici désactiver les contrôles et afficher un écran de fin
+                Debug.Log("Niveau terminé !");
+            }
+        }
     }
 }

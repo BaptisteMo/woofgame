@@ -8,7 +8,6 @@ public class PlayerMovement : MonoBehaviour
     private float baseSpeed;
     private float accelerationDuration;
     private float accelerationTimer = 0f;
-    private float accelMultiplier = 1f;
 
     public float currentSpeed { get; private set; }
     private float targetSpeed;
@@ -20,10 +19,10 @@ public class PlayerMovement : MonoBehaviour
     private int currentLane = 0;
     private Vector3 targetPosition;
     public bool isFinished = false;
-    private Rigidbody rigidbody;
+    private Rigidbody rb;
     void Start()
     {
-        rigidbody = GetComponent<Rigidbody>();
+        rb = GetComponent<Rigidbody>();
         baseSpeed = GameSession.Instance.baseSpeed;
         maxSpeed = GameSession.Instance.maxSpeed;
         accelerationDuration = GameSession.Instance.accelerationDuration;
@@ -67,8 +66,8 @@ public class PlayerMovement : MonoBehaviour
 
         // ↔️ Mouvement latéral
         
-        Vector3 newPosition = new Vector3(targetPosition.x, rigidbody.position.y, rigidbody.position.z);
-        rigidbody.MovePosition(Vector3.Lerp(rigidbody.position, newPosition, Time.deltaTime * 10f));
+        Vector3 newPosition = new Vector3(targetPosition.x, rb.position.y, rb.position.z);
+        rb.MovePosition(Vector3.Lerp(rb.position, newPosition, Time.deltaTime * 10f));
 
         // ⌨️ Input
         if (canSwitchLane && Input.GetKeyDown(KeyCode.LeftArrow) && currentLane > -1)

@@ -1,6 +1,5 @@
 using UnityEngine;
 
-using UnityEngine;
 
 [CreateAssetMenu(menuName = "Boosts/Coin Loot Chance Bonus")]
 public class CoinLootChanceBoost : ScriptableObject, IEffect
