@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseDropChance: 50
   coinReward: 5
+  attractionRadius: 10
+  magnetSpeedMultiplier: 2
 --- !u!65 &8150411688935743308
 BoxCollider:
   m_ObjectHideFlags: 0

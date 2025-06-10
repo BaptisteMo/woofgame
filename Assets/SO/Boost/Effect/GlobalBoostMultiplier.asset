@@ -10,6 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5351610b84904467a17758d72826017a, type: 3}
-  m_Name: bonusIncreasePerEffect
+  m_Name: GlobalBoostMultiplier
   m_EditorClassIdentifier: 
   multiplierBonus: 0.2

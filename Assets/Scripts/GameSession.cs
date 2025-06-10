@@ -17,12 +17,14 @@ public class GameSession : MonoBehaviour
     public float maxSpeed = 20f;             // Maximum forward speed
     public float baseSpeed = 5f;          // Initial speed
     public float accelerationDuration = 15f;
+    public float lastPlayerSpeed = 20f; // mis à jour en temps réel par le player
 
     [Header("Progression")]
     public int currentLevel = 1;
     public string nextSceneName = "";
     public string RetryLevel = "";
-    [Header("Bonus & Malus")]
+    [Header("Bonus & Malus")] 
+    public bool adjacentLootCollectorEnabled = false;
     public bool lootGrantsSpeed = false;
     public float lootSpeedBonusPercent = 10f;
     public float coinDropBonusPercent = 0f;
@@ -46,11 +48,13 @@ public class GameSession : MonoBehaviour
 
     void Update()
     {
+        
         // 🔁 Redémarrer la scène courante avec la touche R
         if (Input.GetKeyDown(KeyCode.R))
         {
             ReloadCurrentScene();
         }
+        
     }
     public void ReloadCurrentScene()
     {

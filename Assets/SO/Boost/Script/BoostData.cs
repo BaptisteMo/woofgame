@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewBoost", menuName = "Boutique/Boost")]
-public class BoostData : MonoBehaviour
+public class BoostData : ScriptableObject
 {
     public string boostName;
     public int price;

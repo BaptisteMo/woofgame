@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour
     public float laneLockDuration = 0.4f;
 
     public float laneDistance = 5f;
-    private int currentLane = 0;
+    public int currentLane = 0;
     private Vector3 targetPosition;
     public bool isFinished = false;
     private Rigidbody rb;
@@ -64,6 +64,7 @@ public class PlayerMovement : MonoBehaviour
 
         // ⏩ Accélération progressive vers targetSpeed
         accelerationTimer += Time.deltaTime;
+        GameSession.Instance.lastPlayerSpeed = currentSpeed;
 
         // 🚀 Mouvement avant
 
