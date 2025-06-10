@@ -44,6 +44,20 @@ public class GameSession : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        // 🔁 Redémarrer la scène courante avec la touche R
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ReloadCurrentScene();
+        }
+    }
+    public void ReloadCurrentScene()
+    {
+        Scene activeScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(activeScene.name);
+    }
+
     public void ResetSession()
     {
         playerMoney = 0;

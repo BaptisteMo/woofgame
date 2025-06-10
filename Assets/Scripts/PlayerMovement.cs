@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    public event Action<int> OnLaneChanged;
+
+    
     private float maxSpeed;
     private float baseSpeed;
     private float accelerationDuration;
@@ -72,14 +75,14 @@ public class PlayerMovement : MonoBehaviour
         // ⌨️ Input
         if (canSwitchLane && Input.GetKeyDown(KeyCode.LeftArrow) && currentLane > -1)
         {
-            currentLane--;
-            UpdateTargetPosition();
+            SetLane(currentLane - 1);
+
         }
 
         if (canSwitchLane && Input.GetKeyDown(KeyCode.RightArrow) && currentLane < 1)
         {
-            currentLane++;
-            UpdateTargetPosition();
+            SetLane(currentLane + 1);
+
         }
     }
 
@@ -97,7 +100,15 @@ public class PlayerMovement : MonoBehaviour
         accelerationTimer = 0f; // recommence l’interpolation depuis maintenant
     }
 
-
+    private void SetLane(int newLane)
+    {
+        if (currentLane != newLane)
+        {
+            currentLane = newLane;
+            OnLaneChanged?.Invoke(currentLane);
+            UpdateTargetPosition();
+        }
+    }
 
 
     public void DecreaseSpeed(float amount)
