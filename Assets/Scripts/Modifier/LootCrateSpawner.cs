@@ -2,32 +2,46 @@ using UnityEngine;
 
 public class LootCrateGenerator : MonoBehaviour
 {
-    [Header("Configuration")]
-    [Tooltip("Position de la lane : -1 = gauche, 0 = centre, 1 = droite")]
-    public int laneIndex = 0;
+    public enum Lane { Left = -1, Center = 0, Right = 1 }
+    public Lane targetLane;
 
-    [Range(0, 100)] public float normalCrateChance = 50f;
-    [Range(0, 100)] public float goldenCrateChance = 30f;
+    [Header("Chances de spawn (%)")]
+    [Range(0, 100)] public float chanceSpawnNormal = 60f;
+    [Range(0, 100)] public float chanceSpawnGolden = 20f;
 
     public GameObject normalCratePrefab;
     public GameObject goldenCratePrefab;
 
-    public float laneWidth = 5f;
-
-    void Start()
+    private void Start()
     {
-        float roll = Random.Range(0f, 100f);
-        Vector3 position = transform.position;
-        position.y = position.y + 0.5f;
+        TrySpawnCrate();
+    }
 
-        if (roll <= normalCrateChance)
+    public void TrySpawnCrate()
+    {
+        float bonusNormal = 0f;
+        float bonusGolden = GameSession.Instance.goldenCrateSpawnerChanceBonus;
+
+        if (targetLane == Lane.Left)
         {
-            Instantiate(normalCratePrefab, position, Quaternion.identity);
+            bonusNormal += GameSession.Instance.leftLaneNormalCrateBonus;
+            bonusGolden += GameSession.Instance.leftLaneGoldenCrateBonus;
         }
-        else if (roll <= normalCrateChance + goldenCrateChance)
+
+        float roll = Random.Range(0f, 100f);
+
+        if (roll <= chanceSpawnGolden + bonusGolden)
         {
-            Instantiate(goldenCratePrefab, position, Quaternion.identity);
+            Instantiate(goldenCratePrefab, transform.position, Quaternion.identity);
         }
-        // sinon : rien ne se passe
+        else if (roll <= chanceSpawnNormal + bonusNormal)
+        {
+            Instantiate(normalCratePrefab, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            // Rien ne spawn
+            Debug.Log("❌ Aucun loot spawné");
+        }
     }
 }
