@@ -14,8 +14,9 @@ public class FlatSpeedBonus : MonoBehaviour
             PlayerMovement player = other.GetComponent<PlayerMovement>();
             if (player != null)
             {
-                player.BoostSpeed(bonusAmount);
-                Debug.Log("Bonus took");
+                float effectiveBonus = BoostHelper.ApplyMultiplier(bonusAmount);
+                player.BoostSpeed(effectiveBonus);
+                Debug.Log($"🚀 Boost pris : {effectiveBonus} vitesse");
             }
 
             // Destroy the bonus object after pickup

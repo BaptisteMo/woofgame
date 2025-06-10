@@ -12,12 +12,21 @@ public class LootCrate : MonoBehaviour
         {
             float bonus = GameSession.Instance.coinDropBonusPercent;
             float finalChance = baseDropChance + bonus;
-
             float roll = Random.Range(0f, 100f);
+            
+            PlayerMovement player = other.GetComponent<PlayerMovement>();
+
             if (roll <= finalChance)
             {
                 GameSession.Instance.playerMoney += coinReward;
                 Debug.Log($"💰 Caisse lootée ! ({finalChance}%)");
+
+                if (GameSession.Instance.lootGrantsSpeed && player != null)
+                {
+                    float speedBonus = player.currentSpeed * (GameSession.Instance.lootSpeedBonusPercent / 100f);
+                    player.BoostSpeed(speedBonus);
+                    Debug.Log($"🚀 Bonus de vitesse appliqué : +{speedBonus} !");
+                }
             }
             else
             {
