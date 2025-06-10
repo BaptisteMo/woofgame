@@ -7,11 +7,13 @@ public class PlayerMovement : MonoBehaviour
     public event Action<int> OnLaneChanged;
 
     
-    private float maxSpeed;
-    private float baseSpeed;
+    
+    private float startSpeed;    // la vitesse au début de l’accélération
+    private float maxSpeed;      // vitesse cible (modifiable dynamiquement)
+
     private float accelerationDuration;
     private float accelerationTimer = 0f;
-
+    
     public float currentSpeed { get; private set; }
     private float targetSpeed;
 
@@ -26,11 +28,15 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        baseSpeed = GameSession.Instance.baseSpeed;
+        
+        startSpeed = GameSession.Instance.baseSpeed;
         maxSpeed = GameSession.Instance.maxSpeed;
+        accelerationTimer = 0f;
+        currentSpeed = startSpeed;
+        Debug.Log("🔍 Vitesse max initialisée à : " + maxSpeed);
+
         accelerationDuration = GameSession.Instance.accelerationDuration;
 
-        currentSpeed = baseSpeed;
         targetSpeed = maxSpeed;
         
         BoostManager.Instance.ApplyBoostsToPlayer(this); // ✅ Application des boosts
@@ -41,20 +47,18 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (isFinished) return;
+        
+        accelerationTimer += Time.fixedDeltaTime;
 
-        // Toujours avancer dans le temps d'accélération
-        accelerationTimer += Time.deltaTime;
-
-        // Calcule le facteur d'interpolation (linéaire)
+        // Avance du timer
         float t = Mathf.Clamp01(accelerationTimer / accelerationDuration);
 
-        // Interpolation linéaire de baseSpeed vers maxSpeed
-        currentSpeed = Mathf.Lerp(baseSpeed, GameSession.Instance.maxSpeed, t);
+        // Interpolation entre start et max
+        currentSpeed = Mathf.Lerp(startSpeed, maxSpeed, t);
 
-        // Mouvement vers l’avant
-        transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime, Space.World);
+        // Mouvement avant
+        transform.Translate(Vector3.forward * currentSpeed * Time.fixedDeltaTime, Space.World);
     }
-
 
 
 
@@ -97,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
     // 🧠 External effects
     public void BoostSpeed(float amount)
     {
-        baseSpeed = currentSpeed + amount; // repart de cette nouvelle vitesse
+        startSpeed = currentSpeed + amount; // repart de cette nouvelle vitesse
         accelerationTimer = 0f; // recommence l’interpolation depuis maintenant
     }
 
@@ -114,26 +118,26 @@ public class PlayerMovement : MonoBehaviour
 
     public void DecreaseSpeed(float amount)
     {
-        baseSpeed = Mathf.Max(currentSpeed - amount, 2f); // évite les vitesses trop faibles
+        startSpeed = Mathf.Max(currentSpeed - amount, 2f); // évite les vitesses trop faibles
         accelerationTimer = 0f;
     }
 
     public void ModifyPercentSpeed(float amount)
     {
-        baseSpeed = Mathf.Max(currentSpeed * amount, 2f);
+        startSpeed = Mathf.Max(currentSpeed * amount, 2f);
         accelerationTimer = 0f;
     }
 
 
     public void ResetSpeed()
     {
-        targetSpeed = baseSpeed;
+        targetSpeed = startSpeed;
         accelerationTimer = 0f;
     }
 
     public void ReduceSpeedByHalf()
     {
-        baseSpeed *= GameSession.Instance.wallHitMalus;
+        startSpeed *= GameSession.Instance.wallHitMalus;
         accelerationTimer = 0f;
     }
 
@@ -144,7 +148,23 @@ public class PlayerMovement : MonoBehaviour
             ReduceSpeedByHalf();
             RecenterOnLane();
             StartCoroutine(LockLaneSwitchCoroutine(laneLockDuration));
+
+            // 🔄 Notifie le tracker s’il existe
+            var tracker = GetComponent<MaxSpeedNoCollisionTracker>();
+            
+            if (tracker != null)
+            {
+                tracker.OnWallCollision();
+            }
         }
+    }
+    public void SetMaxSpeed(float newMaxSpeed)
+    {
+        Debug.Log($"🎯 SetMaxSpeed appelé avec {newMaxSpeed}");
+
+        startSpeed = currentSpeed; // ← on repart depuis la vitesse actuelle
+        maxSpeed = newMaxSpeed;
+        accelerationTimer = 0f;    // ← redémarre l’accélération
     }
 
     private IEnumerator LockLaneSwitchCoroutine(float duration)
@@ -173,6 +193,15 @@ public class PlayerMovement : MonoBehaviour
             return false;
         }
     }
+    
+    private void OnDrawGizmos()
+    {
+        #if UNITY_EDITOR
+                UnityEditor.Handles.color = Color.green;
+                UnityEditor.Handles.Label(transform.position + Vector3.up * 2f, $"Speed: {currentSpeed:F1} / Max: {maxSpeed:F1}");
+        #endif
+    }
+
     
 
 }
