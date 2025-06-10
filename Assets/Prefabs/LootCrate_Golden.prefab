@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4905496892997904824}
   - component: {fileID: 557128148813429426}
+  - component: {fileID: 8150411688935743308}
   m_Layer: 0
   m_Name: LootCrate_Golden
   m_TagString: Untagged
@@ -45,8 +46,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c519e26b2f1e84cbc9653dfc77b75931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropChance: 100
+  baseDropChance: 50
   coinReward: 5
+--- !u!65 &8150411688935743308
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 96104201464411648}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.2, z: 3}
+  m_Center: {x: 0, y: 0, z: 0.8}
 --- !u!1 &2549452661390450346
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +80,6 @@ GameObject:
   - component: {fileID: 5154438861014789749}
   - component: {fileID: 523876423126437848}
   - component: {fileID: 5503327069843047415}
-  - component: {fileID: 5103954640873827641}
   - component: {fileID: 4916091699357716097}
   m_Layer: 0
   m_Name: LootCrate_Golden
@@ -135,27 +156,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5103954640873827641
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2549452661390450346}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.38, y: 1, z: 3}
-  m_Center: {x: 0, y: 0, z: 0.8}
 --- !u!95 &4916091699357716097
 Animator:
   serializedVersion: 7

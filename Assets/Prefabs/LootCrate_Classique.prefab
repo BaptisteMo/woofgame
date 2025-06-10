@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4728779132669646341}
   - component: {fileID: 7918537583858854176}
+  - component: {fileID: 1986044987147305737}
   m_Layer: 0
   m_Name: LootCrate_Classique
   m_TagString: Untagged
@@ -45,8 +46,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c519e26b2f1e84cbc9653dfc77b75931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dropChance: 50
+  baseDropChance: 50
   coinReward: 5
+--- !u!65 &1986044987147305737
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2978746691407167917}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1.2, z: 3}
+  m_Center: {x: 0, y: 0, z: 0.8}
 --- !u!1 &3771093280575852245
 GameObject:
   m_ObjectHideFlags: 0
@@ -58,7 +80,6 @@ GameObject:
   - component: {fileID: 8487881503423880707}
   - component: {fileID: 3105146710797381994}
   - component: {fileID: 9074789746911328458}
-  - component: {fileID: 6490618742062703314}
   - component: {fileID: 1155584660857566081}
   m_Layer: 0
   m_Name: LootCrate_Classique
@@ -135,27 +156,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &6490618742062703314
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3771093280575852245}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.38, y: 1, z: 3}
-  m_Center: {x: 0, y: 0, z: 0.8}
 --- !u!95 &1155584660857566081
 Animator:
   serializedVersion: 7
