@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewConsumable", menuName = "Boutique/Consumable")]
-public class ConsumableData : ScriptableObject
+public class ConsumableData : UnityEngine.ScriptableObject
 {
     public string consumableName;
   //  public Sprite icon;
