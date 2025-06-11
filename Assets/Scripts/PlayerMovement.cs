@@ -58,6 +58,10 @@ public class PlayerMovement : MonoBehaviour
 
         // Mouvement avant
         transform.Translate(Vector3.forward * currentSpeed * Time.fixedDeltaTime, Space.World);
+        
+       
+
+       
     }
 
 
@@ -69,14 +73,8 @@ public class PlayerMovement : MonoBehaviour
         // ⏩ Accélération progressive vers targetSpeed
         accelerationTimer += Time.deltaTime;
         GameSession.Instance.lastPlayerSpeed = currentSpeed;
-
-        // 🚀 Mouvement avant
-
-        // ↔️ Mouvement latéral
-        
         Vector3 newPosition = new Vector3(targetPosition.x, rb.position.y, rb.position.z);
         rb.MovePosition(Vector3.Lerp(rb.position, newPosition, Time.deltaTime * 10f));
-
         // ⌨️ Input
         if (canSwitchLane && Input.GetKeyDown(KeyCode.LeftArrow) && currentLane > -1)
         {
@@ -89,6 +87,7 @@ public class PlayerMovement : MonoBehaviour
             SetLane(currentLane + 1);
 
         }
+   
     }
 
     void UpdateTargetPosition()
@@ -145,6 +144,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Wall"))
         {
+            Debug.Log("Wall collision detected");
             ReduceSpeedByHalf();
             RecenterOnLane();
             StartCoroutine(LockLaneSwitchCoroutine(laneLockDuration));
@@ -177,13 +177,28 @@ public class PlayerMovement : MonoBehaviour
     public void RecenterOnLane()
     {
         float x = transform.position.x;
-        if (x < -laneDistance / 2f) currentLane = -1;
-        else if (x > laneDistance / 2f) currentLane = 1;
-        else currentLane = 0;
+
+        // Détermine les X exacts de chaque lane
+        float leftX = -laneDistance;
+        float centerX = 0f;
+        float rightX = laneDistance;
+
+        // Calcule la distance du joueur à chaque lane
+        float distLeft = Mathf.Abs(x - leftX);
+        float distCenter = Mathf.Abs(x - centerX);
+        float distRight = Mathf.Abs(x - rightX);
+
+        // Compare et assigne la lane la plus proche
+        if (distLeft < distCenter && distLeft < distRight)
+            currentLane = -1;
+        else if (distRight < distCenter && distRight < distLeft)
+            currentLane = 1;
+        else
+            currentLane = 0;
 
         UpdateTargetPosition();
     }
-    
+
     public bool CurrentSpeedIsMax()
     {
         if (currentSpeed >= GameSession.Instance.maxSpeed)
@@ -196,6 +211,10 @@ public class PlayerMovement : MonoBehaviour
     
     private void OnDrawGizmos()
     {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawLine(transform.position + Vector3.left * laneDistance, transform.position + Vector3.left * laneDistance + Vector3.forward * 10f);
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.forward * 10f);
+        Gizmos.DrawLine(transform.position + Vector3.right * laneDistance, transform.position + Vector3.right * laneDistance + Vector3.forward * 10f);  
         #if UNITY_EDITOR
                 UnityEditor.Handles.color = Color.green;
                 UnityEditor.Handles.Label(transform.position + Vector3.up * 2f, $"Speed: {currentSpeed:F1} / Max: {maxSpeed:F1}");

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_Max Speed Increase If No Collision
   m_EditorClassIdentifier: 
-  boostName: 
+  boostName: Max speed + 20%
   price: 0
-  description: 
+  description: Max speed + 20%
   type: 0
-  effect: {fileID: 0}
+  effect: {fileID: 11400000, guid: ecd4c2f2beb2e4c10b9a5026583b5381, type: 2}
