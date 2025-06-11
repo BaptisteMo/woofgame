@@ -64,6 +64,10 @@ public class PlayerMovement : MonoBehaviour
         // ✅ Mouvement avant avec collision
         Vector3 forwardMovement = Vector3.forward * currentSpeed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + forwardMovement);
+        
+        // ↔️ Mouvement latéral (NOUVEAU)
+        Vector3 newPosition = new Vector3(targetPosition.x, rb.position.y, rb.position.z);
+        rb.MovePosition(Vector3.Lerp(rb.position, newPosition, Time.fixedDeltaTime * 10f));
     }
 
 
@@ -76,8 +80,6 @@ public class PlayerMovement : MonoBehaviour
         // ⏩ Accélération progressive vers targetSpeed
         accelerationTimer += Time.deltaTime;
         GameSession.Instance.lastPlayerSpeed = currentSpeed;
-        Vector3 newPosition = new Vector3(targetPosition.x, rb.position.y, rb.position.z);
-        rb.MovePosition(Vector3.Lerp(rb.position, newPosition, Time.deltaTime * 10f));
         // ⌨️ Input
         if (canSwitchLane && Input.GetKeyDown(KeyCode.LeftArrow) && currentLane > -1)
         {
