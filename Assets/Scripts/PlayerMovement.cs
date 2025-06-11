@@ -140,6 +140,8 @@ public class PlayerMovement : MonoBehaviour
 
     public void ReduceSpeedByHalf()
     {
+        if (GameSession.Instance.ignoreFirstCollision && GameSession.Instance.wallHitCount < 1) return;
+        
         if (GameSession.Instance.wallHitReduced)
         {
             Debug.Log("Wall hit reduced");
@@ -163,7 +165,7 @@ public class PlayerMovement : MonoBehaviour
             ReduceSpeedByHalf();
             RecenterOnLane();
             StartCoroutine(LockLaneSwitchCoroutine(laneLockDuration));
-
+            GameSession.Instance.wallHitCountTrack();
             // 🔄 Notifie le tracker s’il existe
             var tracker = GetComponent<MaxSpeedNoCollisionTracker>();
             var combo = GetComponent<CollectorComboSpeedTracker>();

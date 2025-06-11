@@ -36,6 +36,8 @@ public class GameSession : MonoBehaviour
     public bool wallHitReduced = false;
     public float wallHitMalusReduced = 0.75f;
     public float wallHitMalus;
+    public int wallHitCount = 0;
+    public bool ignoreFirstCollision = false;
     void Awake()
     {
         // Singleton
@@ -57,6 +59,7 @@ public class GameSession : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             ReloadCurrentScene();
+            wallHitCount = 0;
         }
         
     }
@@ -64,6 +67,12 @@ public class GameSession : MonoBehaviour
     {
         Scene activeScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(activeScene.name);
+    }
+
+    public int wallHitCountTrack()
+    {
+        wallHitCount++;
+        return wallHitCount;
     }
 
     public void ResetSession()
@@ -76,7 +85,8 @@ public class GameSession : MonoBehaviour
         hasEnded = false;
         leftLaneGoldenCrateBonus = 0f;
         leftLaneNormalCrateBonus = 0f;
-      //  BoostManager.Instance.ResetBoosts(); // ✅ Reset des boosts
+        wallHitCount = 0;
+        //  BoostManager.Instance.ResetBoosts(); // ✅ Reset des boosts
     }
 
     public void TriggerRunEnd()

@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
-  m_Name: BOOST_WallHitReduced
+  m_Name: BOOST_FirstWallHitIgnored
   m_EditorClassIdentifier: 
-  boostName: "La r\xE9ductino de vitesse est r\xE9duite lors des collisions"
+  boostName: 
   price: 0
   description: 
   type: 0
-  effect: {fileID: 11400000, guid: 088edbdafc63b4041b38c8ba76f6cc9e, type: 2}
+  effect: {fileID: 0}
