@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df1c1704b56b45a19f81c47034d87f98, type: 3}
-  m_Name: Combo Collector Speed Boost
+  m_Script: {fileID: 11500000, guid: 41915d5cab5d420c86ae5cd0459e029a, type: 3}
+  m_Name: Wall Hit Reduced
   m_EditorClassIdentifier: 
-  bonusPercentPerCombo: 20
+  bonusPercent: 25

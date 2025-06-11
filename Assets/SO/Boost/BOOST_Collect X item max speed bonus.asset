@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_Collect X item max speed bonus
   m_EditorClassIdentifier: 
-  boostName: 
+  boostName: Collecter 5 item augmente la vitesse max de 10%
   price: 0
   description: 
   type: 0
-  effect: {fileID: 0}
+  effect: {fileID: 11400000, guid: 15bb8e3f2405544e38a303251221f553, type: 2}

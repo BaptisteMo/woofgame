@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 7701646301850221923}
   - component: {fileID: 139888022666999507}
   - component: {fileID: 4366062305297661148}
-  - component: {fileID: 4634455610194608485}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -172,18 +171,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lootRadius: 17
   gizmoColor: {r: 1, g: 0.85, b: 0, a: 0.3}
---- !u!114 &4634455610194608485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 66838717441050314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b06ee3dbbf1b4a0e8e0c28469f613ee3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3644021698805906303
 GameObject:
   m_ObjectHideFlags: 0

@@ -36,6 +36,7 @@ public class PlayerMovement : MonoBehaviour
         baseMaxSpeed = maxSpeed;
         accelerationTimer = 0f;
         currentSpeed = startSpeed;
+        currentLane = 0;
         Debug.Log("🔍 Vitesse max initialisée à : " + maxSpeed);
 
         accelerationDuration = GameSession.Instance.accelerationDuration;
@@ -139,8 +140,19 @@ public class PlayerMovement : MonoBehaviour
 
     public void ReduceSpeedByHalf()
     {
-        startSpeed *= GameSession.Instance.wallHitMalus;
-        accelerationTimer = 0f;
+        if (GameSession.Instance.wallHitReduced)
+        {
+            Debug.Log("Wall hit reduced");
+            
+            ModifyPercentSpeed(0.75f);
+
+        }
+        else
+        {
+            Debug.Log("Wall hit not reduced");
+            ModifyPercentSpeed(0.5f);
+        }
+        
     }
 
     private void OnCollisionEnter(Collision collision)

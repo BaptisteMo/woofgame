@@ -32,8 +32,9 @@ public class GameSession : MonoBehaviour
     public bool doubleDistanceOnMaxSpeed = false;
     public float leftLaneNormalCrateBonus = 0f;
     public float leftLaneGoldenCrateBonus = 0f;
-    public float goldenCrateSpawnerChanceBonus = 0f; 
-
+    public float goldenCrateSpawnerChanceBonus = 0f;
+    public bool wallHitReduced = false;
+    public float wallHitMalusReduced = 0.75f;
     public float wallHitMalus;
     void Awake()
     {

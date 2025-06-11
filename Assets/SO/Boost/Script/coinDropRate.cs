@@ -10,6 +10,8 @@ public class CoinLootChanceBoost : ScriptableObject, IEffect
     public void Apply(PlayerMovement player)
     {
         GameSession.Instance.coinDropBonusPercent += bonusPercent;
+        Debug.Log($"🎁 Boost coin drop actif : +{bonusPercent}% d'obtenir des pièces dans les caisses");
+
     }
 }
 
