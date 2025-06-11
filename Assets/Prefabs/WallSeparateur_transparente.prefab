@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7696169970356495214}
   - component: {fileID: 3591164034638663088}
   m_Layer: 0
-  m_Name: WallSeparateur
+  m_Name: WallSeparateur_transparente
   m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -66,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a4b62a69d54e80347bd546999c6d4b9e, type: 2}
+  - {fileID: 2100000, guid: fc7b20ec0e5a0452da8a2213279502e0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

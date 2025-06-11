@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_FirstWallHitIgnored
   m_EditorClassIdentifier: 
-  boostName: 
+  boostName: "La r\xE9duction de vitesse est ignor\xE9 sur votre premi\xE8re collision
+    contre un mur"
   price: 0
   description: 
   type: 0
-  effect: {fileID: 0}
+  effect: {fileID: 11400000, guid: 7c30640a697e8431ab42792a660b7905, type: 2}

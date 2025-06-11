@@ -11304,7 +11304,7 @@ PrefabInstance:
     - target: {fileID: 7962385340798608102, guid: 6ddaa4d75f5cd476eab911fcd8023492, type: 3}
       propertyPath: 'acquiredBoosts.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 8ce8c2c1eb21b478aa377cc4d7a29970, type: 2}
+      objectReference: {fileID: 11400000, guid: a3d76b45ddf1b4742abb6d086ef932bd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11776,7 +11776,7 @@ PrefabInstance:
     - target: {fileID: 7962385340798608102, guid: 6ddaa4d75f5cd476eab911fcd8023492, type: 3}
       propertyPath: 'acquiredBoosts.Array.data[0]'
       value: 
-      objectReference: {fileID: 11400000, guid: 8ce8c2c1eb21b478aa377cc4d7a29970, type: 2}
+      objectReference: {fileID: 11400000, guid: a3d76b45ddf1b4742abb6d086ef932bd, type: 2}
     - target: {fileID: 7962385340798608102, guid: 6ddaa4d75f5cd476eab911fcd8023492, type: 3}
       propertyPath: 'acquiredBoosts.Array.data[1]'
       value: 
@@ -22211,7 +22211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4885230432181374389, guid: 84931a715829ee0489e0c77dfe398a4f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2
+      value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 4885230432181374389, guid: 84931a715829ee0489e0c77dfe398a4f, type: 3}
       propertyPath: m_LocalRotation.w

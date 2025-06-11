@@ -51,6 +51,10 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (isFinished) return;
+        void FixedUpdate()
+        {
+            Debug.DrawRay(transform.position, Vector3.forward * 2f, Color.red);
+        }
 
         accelerationTimer += Time.fixedDeltaTime;
 
