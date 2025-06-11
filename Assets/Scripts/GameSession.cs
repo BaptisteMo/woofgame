@@ -75,7 +75,7 @@ public class GameSession : MonoBehaviour
         hasEnded = false;
         leftLaneGoldenCrateBonus = 0f;
         leftLaneNormalCrateBonus = 0f;
-        BoostManager.Instance.ResetBoosts(); // ✅ Reset des boosts
+      //  BoostManager.Instance.ResetBoosts(); // ✅ Reset des boosts
     }
 
     public void TriggerRunEnd()

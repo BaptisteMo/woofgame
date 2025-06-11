@@ -13,6 +13,17 @@ public class PercentSpeedModifier : MonoBehaviour
             PlayerMovement player = other.GetComponent<PlayerMovement>();
             if (player != null)
             {
+                var collectItem = other.GetComponent<CollectXItemsSpeedBonusTracker>();
+                if (collectItem != null)
+                {
+                    collectItem.OnCollectablePicked();
+                }
+                var combo = other.GetComponent<CollectorComboSpeedTracker>();
+                if (combo != null)
+                {
+                    combo.OnCollectablePicked();
+                }
+
                 player.ModifyPercentSpeed(malusAmount);
             }
          Destroy(gameObject);

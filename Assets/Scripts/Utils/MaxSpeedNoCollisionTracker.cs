@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class MaxSpeedNoCollisionTracker : MonoBehaviour
@@ -10,30 +9,28 @@ public class MaxSpeedNoCollisionTracker : MonoBehaviour
     private bool bonusApplied = false;
     private PlayerMovement player;
 
-    private float originalMaxSpeed;
-
-    private void Start()
-    {
-        player = GetComponent<PlayerMovement>();
-    }
+    private const string sourceId = "NoCollisionSpeedBonus";
 
     public void Setup(float requiredTime, float bonusPercent)
     {
         this.requiredTime = requiredTime;
         this.bonusPercent = bonusPercent;
+
         player = GetComponent<PlayerMovement>();
-        originalMaxSpeed = GameSession.Instance.maxSpeed;
+        timeSinceLastCollision = 0f;
     }
 
     void Update()
     {
+        if (player == null) return;
+
         timeSinceLastCollision += Time.deltaTime;
 
         if (!bonusApplied && timeSinceLastCollision >= requiredTime)
         {
-            float bonusAmount = originalMaxSpeed * (bonusPercent / 100f);
-            player.SetMaxSpeed(originalMaxSpeed + bonusAmount);
+            player.AddSpeedModifier(sourceId, bonusPercent);
             bonusApplied = true;
+            Debug.Log($"🛡️ Bonus sans collision actif : +{bonusPercent}% de vitesse max");
         }
     }
 
@@ -43,9 +40,9 @@ public class MaxSpeedNoCollisionTracker : MonoBehaviour
 
         if (bonusApplied)
         {
-            player.SetMaxSpeed(originalMaxSpeed);
+            player.RemoveSpeedModifier(sourceId);
             bonusApplied = false;
-            Debug.Log("🚧 Collision détectée, boost de vitesse annulé");
+            Debug.Log("🚧 Collision détectée → bonus annulé");
         }
     }
 }

@@ -56,6 +56,18 @@ public class LootCrate : MonoBehaviour
         // Cas normal, le joueur touche directement la caisse
         if (other.CompareTag("Player") && !isMagnetized)
         {
+            var collectItem = other.GetComponent<CollectXItemsSpeedBonusTracker>();
+            if (collectItem != null)
+            {
+                collectItem.OnCollectablePicked();
+            }
+
+            var combo = other.GetComponent<CollectorComboSpeedTracker>();
+            if (combo != null)
+            {
+                combo.OnCollectablePicked();
+            }
+
             GrantLoot();
             Destroy(gameObject);
         }

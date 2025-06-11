@@ -14,6 +14,17 @@ public class FlatSpeedBonus : MonoBehaviour
             PlayerMovement player = other.GetComponent<PlayerMovement>();
             if (player != null)
             {
+                var collectItem = other.GetComponent<CollectXItemsSpeedBonusTracker>();
+                if (collectItem != null)
+                {
+                    collectItem.OnCollectablePicked();
+                }
+                var combo = other.GetComponent<CollectorComboSpeedTracker>();
+                if (combo != null)
+                {
+                    combo.OnCollectablePicked();
+                }
+
                 float effectiveBonus = BoostHelper.ApplyMultiplier(bonusAmount);
                 player.BoostSpeed(effectiveBonus);
                 Debug.Log($"🚀 Boost pris : {effectiveBonus} vitesse");

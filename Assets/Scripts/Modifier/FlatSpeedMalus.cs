@@ -13,6 +13,11 @@ public class FlatSpeedMalus : MonoBehaviour
             PlayerMovement player = other.GetComponent<PlayerMovement>();
             if (player != null)
             {
+                var combo = GetComponent<CollectorComboSpeedTracker>();
+                if (combo != null)
+                {
+                    combo.OnObstacleHit();
+                }
                 player.DecreaseSpeed(malusAmount);
             }
             

@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
@@ -10,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     
     private float startSpeed;    // la vitesse au début de l’accélération
     private float maxSpeed;      // vitesse cible (modifiable dynamiquement)
+    private float baseMaxSpeed;
 
     private float accelerationDuration;
     private float accelerationTimer = 0f;
@@ -31,6 +33,7 @@ public class PlayerMovement : MonoBehaviour
         
         startSpeed = GameSession.Instance.baseSpeed;
         maxSpeed = GameSession.Instance.maxSpeed;
+        baseMaxSpeed = maxSpeed;
         accelerationTimer = 0f;
         currentSpeed = startSpeed;
         Debug.Log("🔍 Vitesse max initialisée à : " + maxSpeed);
@@ -151,7 +154,11 @@ public class PlayerMovement : MonoBehaviour
 
             // 🔄 Notifie le tracker s’il existe
             var tracker = GetComponent<MaxSpeedNoCollisionTracker>();
-            
+            var combo = GetComponent<CollectorComboSpeedTracker>();
+            if (combo != null)
+            {
+                combo.OnObstacleHit();
+            }
             if (tracker != null)
             {
                 tracker.OnWallCollision();
@@ -220,6 +227,37 @@ public class PlayerMovement : MonoBehaviour
                 UnityEditor.Handles.Label(transform.position + Vector3.up * 2f, $"Speed: {currentSpeed:F1} / Max: {maxSpeed:F1}");
         #endif
     }
+    
+  
+    private Dictionary<string, float> speedModifiers = new();
+
+    public void AddSpeedModifier(string sourceId, float percent)
+    {
+        speedModifiers[sourceId] = percent;
+        RecalculateMaxSpeed();
+    }
+
+    public void RemoveSpeedModifier(string sourceId)
+    {
+        if (speedModifiers.ContainsKey(sourceId))
+        {
+            speedModifiers.Remove(sourceId);
+            RecalculateMaxSpeed();
+        }
+    }
+
+    private void RecalculateMaxSpeed()
+    {
+        float totalBonusPercent = 0f;
+        foreach (var modifier in speedModifiers.Values)
+        {
+            totalBonusPercent += modifier;
+        }
+
+        float newMaxSpeed = baseMaxSpeed * (1f + totalBonusPercent / 100f);
+        SetMaxSpeed(newMaxSpeed);
+    }
+
 
     
 
