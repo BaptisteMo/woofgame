@@ -51,22 +51,17 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (isFinished) return;
-        
+
         accelerationTimer += Time.fixedDeltaTime;
 
-        // Avance du timer
         float t = Mathf.Clamp01(accelerationTimer / accelerationDuration);
-
-        // Interpolation entre start et max
         currentSpeed = Mathf.Lerp(startSpeed, maxSpeed, t);
 
-        // Mouvement avant
-        transform.Translate(Vector3.forward * currentSpeed * Time.fixedDeltaTime, Space.World);
-        
-       
-
-       
+        // ✅ Mouvement avant avec collision
+        Vector3 forwardMovement = Vector3.forward * currentSpeed * Time.fixedDeltaTime;
+        rb.MovePosition(rb.position + forwardMovement);
     }
+
 
 
 
