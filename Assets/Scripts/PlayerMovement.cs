@@ -160,6 +160,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+
+        if (collision.gameObject.CompareTag("DeathWall"))
+        {
+            GameSession.Instance.TriggerRunEnd();
+        }
         if (collision.gameObject.CompareTag("Wall"))
         {
             Debug.Log("Wall collision detected");
@@ -186,6 +191,8 @@ public class PlayerMovement : MonoBehaviour
 
         }
     }
+    
+    
     public void SetMaxSpeed(float newMaxSpeed)
     {
         Debug.Log($"🎯 SetMaxSpeed appelé avec {newMaxSpeed}");
