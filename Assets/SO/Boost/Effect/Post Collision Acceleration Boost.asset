@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66f4b78bc17245129cda4dc07c014b71, type: 3}
   m_Name: Post Collision Acceleration Boost
   m_EditorClassIdentifier: 
-  accelerationBonus: 5
+  accelerationBonus: 10
   duration: 3

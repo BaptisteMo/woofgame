@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_FastMaxLowAccel
   m_EditorClassIdentifier: 
-  boostName: 
+  boostName: + 5 vitesse max - 3 acceleration
   price: 0
   description: 
-  type: 0
-  effect: {fileID: 0}
+  type: 5
+  effect: {fileID: 11400000, guid: 7534dd628b5b64afd9511fd706388f5a, type: 2}

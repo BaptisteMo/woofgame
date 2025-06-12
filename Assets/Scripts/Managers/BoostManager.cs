@@ -21,8 +21,15 @@ public class BoostManager : MonoBehaviour
     public void RegisterBoost(BoostData boost)
     {
         if (!acquiredBoosts.Contains(boost))
+        {
             acquiredBoosts.Add(boost);
+
+            var boostUI = FindObjectOfType<BoostUI>();
+            if (boostUI != null)
+                boostUI.UpdateBoostUI();
+        }
     }
+
 
     public void ApplyBoostsToPlayer(PlayerMovement player)
     {

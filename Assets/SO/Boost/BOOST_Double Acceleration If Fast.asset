@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_Double Acceleration If Fast
   m_EditorClassIdentifier: 
-  boostName: 
+  boostName: "Votre acceleration est doubl\xE9 lors du score final si vous atteignez
+    la ligne d'arriver avec une vitesse de 15 ou plus"
   price: 0
   description: 
   type: 0
-  effect: {fileID: 0}
+  effect: {fileID: 11400000, guid: a5d2bae4ac06a405885696a4a89874b4, type: 2}

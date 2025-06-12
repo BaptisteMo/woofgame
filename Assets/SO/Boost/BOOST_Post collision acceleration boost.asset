@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_Post collision acceleration boost
   m_EditorClassIdentifier: 
-  boostName: 
+  boostName: "Apr\xE8s une collision l'acceleration est augment\xE9 de 10 "
   price: 0
   description: 
-  type: 0
-  effect: {fileID: 0}
+  type: 5
+  effect: {fileID: 11400000, guid: cc460e649a7224f4cb808c8ff78eab69, type: 2}

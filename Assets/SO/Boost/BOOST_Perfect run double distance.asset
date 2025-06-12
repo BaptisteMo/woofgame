@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_Perfect run double distance
   m_EditorClassIdentifier: 
-  boostName: 
+  boostName: Run sans collision double les points de distance en fin de run
   price: 0
   description: 
   type: 0
-  effect: {fileID: 0}
+  effect: {fileID: 11400000, guid: b73ce216a0c9c4647adfc30f1d7e0a8c, type: 2}
