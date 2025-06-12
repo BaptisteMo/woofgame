@@ -26,6 +26,7 @@ public class BoostManager : MonoBehaviour
 
     public void ApplyBoostsToPlayer(PlayerMovement player)
     {
+        if(acquiredBoosts.Count == 0) return;
         foreach (var boost in acquiredBoosts)
         {
             boost.Apply(player);
