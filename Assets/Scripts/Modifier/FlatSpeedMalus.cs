@@ -13,6 +13,12 @@ public class FlatSpeedMalus : MonoBehaviour
             PlayerMovement player = other.GetComponent<PlayerMovement>();
             if (player != null)
             {
+                var accelBoost = GetComponent<PostCollisionAccelerationTracker>();
+                if (accelBoost != null)
+                {
+                    accelBoost.OnWallCollision();
+                }
+
                 var combo = GetComponent<CollectorComboSpeedTracker>();
                 if (combo != null)
                 {
@@ -20,6 +26,7 @@ public class FlatSpeedMalus : MonoBehaviour
                 }
                 player.DecreaseSpeed(malusAmount);
             }
+            
             
          Destroy(gameObject);
         }

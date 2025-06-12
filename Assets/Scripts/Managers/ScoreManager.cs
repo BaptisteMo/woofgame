@@ -111,15 +111,31 @@ public class ScoreManager : MonoBehaviour
     // Appelé quand on atteint la ligne d’arrivée
     public void CalculateFinalScore()
     {
-        finalScore = Mathf.RoundToInt(distanceScore * player.currentSpeed);
+        float speedUsed = player.currentSpeed;
+        float finalDistance = distanceScore;
+
+        if (GameSession.Instance.perfectRunMultiplier && GameSession.Instance.wallHitCount == 0)
+        {
+            Debug.Log("Perfect run, aucune collision détectée");
+            finalDistance *= 2f;
+        }
+        if (GameSession.Instance.doubleAccelIfFastEnabled &&
+            speedUsed > GameSession.Instance.speedThresholdForDoubleAccel)
+        {
+            Debug.Log($"⚡ Boost appliqué : vitesse finale > seuil ({speedUsed:F1} > {GameSession.Instance.speedThresholdForDoubleAccel})");
+            speedUsed *= 2f;
+        }
+
+        finalScore = Mathf.RoundToInt(finalDistance * speedUsed);
+
     
         Debug.Log("SCORE FINAL : " + finalScore);
 
         bool hasWon = finalScore >= scoreToWin;
 
         ShowEndScreen(finalScore, hasWon);
-        distanceFinishScreen.text = distnanceOnLevel.text;
-        speedFinishScreen.text = player.currentSpeed.ToString("F1");
+        distanceFinishScreen.text = finalDistance.ToString("F1");
+        speedFinishScreen.text = speedUsed.ToString("F1");
 
         requiredScore.text = "Victoire : " + scoreToWin;
 

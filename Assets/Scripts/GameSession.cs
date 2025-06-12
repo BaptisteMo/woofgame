@@ -38,6 +38,11 @@ public class GameSession : MonoBehaviour
     public float wallHitMalus;
     public int wallHitCount = 0;
     public bool ignoreFirstCollision = false;
+    public bool perfectRunMultiplier = false;
+    [Header("Fin de run")]
+    public bool doubleAccelIfFastEnabled = false;
+    public float speedThresholdForDoubleAccel = 0f;
+
     void Awake()
     {
         // Singleton

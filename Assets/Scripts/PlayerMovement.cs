@@ -178,6 +178,12 @@ public class PlayerMovement : MonoBehaviour
             {
                 tracker.OnWallCollision();
             }
+            var accelBoost = GetComponent<PostCollisionAccelerationTracker>();
+            if (accelBoost != null)
+            {
+                accelBoost.OnWallCollision();
+            }
+
         }
     }
     public void SetMaxSpeed(float newMaxSpeed)
@@ -275,5 +281,9 @@ public class PlayerMovement : MonoBehaviour
 
 
     
+    public void IncreaseAcceleration(float amount)
+    {
+        accelerationDuration = Mathf.Max(1f, accelerationDuration - amount);
+    }
 
 }
