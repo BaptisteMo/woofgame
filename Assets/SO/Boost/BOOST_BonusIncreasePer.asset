@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_BonusIncreasePer
   m_EditorClassIdentifier: 
-  boostName: Augmente tous les bonnus de 25%
+  boostName: "B\xE9n\xE9diction de Bor\xE9e"
   price: 0
-  description: Augmente les boost de 25%
+  description: "Le vent du Nord amplifie chaque effet. Tous tes pouvoirs gagnent
+    en intensit\xE9.\nLes bonus sont augment\xE9s de 25%"
+  icon: {fileID: 21300000, guid: 3fa674fb33f154ad28b4e15cd7ad730e, type: 3}
   type: 0
-  effect: {fileID: 11400000, guid: 7bc524a4f15da4f7189066c4d009366a, type: 2}
+  effect: {fileID: 11400000, guid: d82fa8e444cac4a0eab3a9a885a98a51, type: 2}

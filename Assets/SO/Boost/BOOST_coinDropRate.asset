@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_coinDropRate
   m_EditorClassIdentifier: 
-  boostName: 15% coin rate
+  boostName: Coffre de Lygja
   price: 0
-  description: "Augmente de 15% la chance d'obtenir des pi\xE8ce dans les caisses"
+  description: "Les caisses fr\xE9missent \xE0 ton approche. L\u2019abondance r\xE9pond
+    \xE0 ta chance.\nAugmente de 15% la chance d'avoir des pi\xE8ces dans une caisse"
+  icon: {fileID: 21300000, guid: 71d21da92432745aab720aa5b12632aa, type: 3}
   type: 1
   effect: {fileID: 11400000, guid: b817cb59a05e84b8798f9e6569fabc26, type: 2}

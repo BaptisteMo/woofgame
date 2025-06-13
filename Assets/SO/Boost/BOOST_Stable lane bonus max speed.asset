@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_Stable lane bonus max speed
   m_EditorClassIdentifier: 
-  boostName: "Rester sur la m\xEAme ligne 4 seconde augmente la vitesse max de 20%"
+  boostName: "Sillon d\u2019Atlas"
   price: 0
-  description: 
+  description: "Reste fid\xE8le \xE0 ton chemin, et il te le rendra. La constance
+    forge ta vitesse.\nToutes x seconde pass\xE9 sur la meme lane augmente la vitesse
+    max de x"
+  icon: {fileID: 21300000, guid: 4e6334a0ed6d84b7f8ff0d8da2fdb0e9, type: 3}
   type: 0
   effect: {fileID: 11400000, guid: 52ce274e4c32c47da814ac6a382b5742, type: 2}

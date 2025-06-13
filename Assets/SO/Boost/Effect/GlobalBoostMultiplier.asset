@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5351610b84904467a17758d72826017a, type: 3}
   m_Name: GlobalBoostMultiplier
   m_EditorClassIdentifier: 
-  multiplierBonus: 0.2
+  multiplierBonus: 0.25

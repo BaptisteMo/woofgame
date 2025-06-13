@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_LeftLanceBoostChanceCrateSapwn
   m_EditorClassIdentifier: 
-  boostName: 
+  boostName: 'Chemin de Skadi '
   price: 0
-  description: "Augmente la a chance d'apparition de 10% pour les caisses normal
-    et 5% pour les caisses dor\xE9es"
+  description: "La d\xE9esse des hauteurs favorise ta gauche. L\xE0-bas, les caisses
+    se montrent plus nombreuses.\nAugmente les chance d'apparition de caisse sur
+    la ligne de gauche "
+  icon: {fileID: 21300000, guid: 9c6c0f3859d46464a84208cf22b2ae17, type: 3}
   type: 0
   effect: {fileID: 11400000, guid: ded3e561e697b4c48b77463044ddc771, type: 2}

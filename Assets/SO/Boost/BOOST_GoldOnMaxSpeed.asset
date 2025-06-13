@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_GoldOnMaxSpeed
   m_EditorClassIdentifier: 
-  boostName: Go fast baby
+  boostName: 'Midas Furieux '
   price: 0
-  description: "G\xE9n\xE9re 2 gold toutes les 2 seconde pass\xE9es en max speed"
+  description: "Tant que ta vitesse fr\xF4le les cieux, l\u2019or afflue \xE0 ton
+    passage. Chaque seconde \xE0 fond te remplit les poches.\nProduit 1 pi\xE8ce
+    d'or toute les x seconde pass\xE9 en vitesse max"
+  icon: {fileID: 21300000, guid: e7724e664bd4a4a8f939e1bfcb20f425, type: 3}
   type: 3
   effect: {fileID: 11400000, guid: 3183832e65bfe42e49d207317c572018, type: 2}

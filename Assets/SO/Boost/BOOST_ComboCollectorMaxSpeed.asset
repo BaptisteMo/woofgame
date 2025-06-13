@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_ComboCollectorMaxSpeed
   m_EditorClassIdentifier: 
-  boostName: "Tous les 3 objets collect\xE9 sans toucher de mur gangez 5% de vitesse
-    max"
+  boostName: Chasse de Geri
   price: 0
-  description: 
+  description: "Encha\xEEne les butins sans faillir. L\u2019esprit du loup t\u2019accorde
+    un \xE9lan suppl\xE9mentaire.\nCollecter 3 bonus sans toucher d'obstacle augmente
+    la vitesse max de x%"
+  icon: {fileID: 21300000, guid: fb5c230cffd0f4e9f85f63dbd0b28012, type: 3}
   type: 0
   effect: {fileID: 11400000, guid: f17e3c55fefb340b4b7c484233280358, type: 2}

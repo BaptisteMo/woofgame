@@ -12,9 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_Double Acceleration If Fast
   m_EditorClassIdentifier: 
-  boostName: "Votre acceleration est doubl\xE9 lors du score final si vous atteignez
-    la ligne d'arriver avec une vitesse de 15 ou plus"
+  boostName: Jugement de Sleipnir
   price: 0
-  description: 
+  description: "Termine ta course en furie, et les dieux te r\xE9compenseront. Ta
+    vitesse finale scelle ton destin.\nLa vitesse est multipl\xE9 par 2 lors du calcul
+    des scores si la vitesse final est sup\xE9rieur \xE0 15"
+  icon: {fileID: 21300000, guid: 69cd632d225f44ae9a8597c574a1dbea, type: 3}
   type: 0
   effect: {fileID: 11400000, guid: a5d2bae4ac06a405885696a4a89874b4, type: 2}

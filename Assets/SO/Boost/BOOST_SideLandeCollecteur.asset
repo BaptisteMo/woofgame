@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_SideLandeCollecteur
   m_EditorClassIdentifier: 
-  boostName: Collecte les caisses des lanes adjacente
+  boostName: "Magn\xE9tisme d\u2019Eir"
   price: 0
-  description: Collecte les caisses des lanes adjacente
+  description: "Les objets n\u2019ont plus besoin d\u2019\xEAtre chass\xE9s. Ils
+    viennent \xE0 toi, attir\xE9s par ta pr\xE9sence divine.\nR\xE9cup\xE8re automatiquement
+    les sur les lanes adjacentes"
+  icon: {fileID: 21300000, guid: 15bd0b37bd93f44ad9176cce2a3f9d5c, type: 3}
   type: 6
   effect: {fileID: 11400000, guid: 7fa00545837154e9997831f5a1f41bb5, type: 2}

@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_Perfect run double distance
   m_EditorClassIdentifier: 
-  boostName: Run sans collision double les points de distance en fin de run
+  boostName: "Parcours d\u2019Achille"
   price: 0
-  description: 
+  description: "Aucun faux pas. Aucune erreur. Si tu cours comme un h\xE9ros, ta
+    gloire sera d\xE9cupl\xE9e.\nEn cas de run parfaite, lors du calcul des score,
+    la distance est multipli\xE9 par x"
+  icon: {fileID: 21300000, guid: ac92ed1692e034f29b33cd1481b6977f, type: 3}
   type: 0
   effect: {fileID: 11400000, guid: b73ce216a0c9c4647adfc30f1d7e0a8c, type: 2}

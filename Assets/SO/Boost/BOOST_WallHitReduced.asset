@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_WallHitReduced
   m_EditorClassIdentifier: 
-  boostName: "La r\xE9ductino de vitesse est r\xE9duite lors des collisions"
+  boostName: Peau de Fenrir
   price: 0
-  description: 
+  description: "Les coups n\u2019entravent plus ta course. La b\xEAte te pr\xEAte
+    sa peau, r\xE9sistante aux entraves\nR\xE9duit de moiti\xE9 la perte de vitesse
+    en cas de petit obstacle"
+  icon: {fileID: 21300000, guid: a6885749f7d65491d9e81cae91d4e329, type: 3}
   type: 0
   effect: {fileID: 11400000, guid: 088edbdafc63b4041b38c8ba76f6cc9e, type: 2}

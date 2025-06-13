@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_FastMaxLowAccel
   m_EditorClassIdentifier: 
-  boostName: + 5 vitesse max - 3 acceleration
+  boostName: "Balance d\u2019Herm\xF3\xF0r"
   price: 0
-  description: 
+  description: "Plus rapide, mais moins vif. Une balance d\xE9licate que seuls les
+    plus fins dompteurs sauront ma\xEEtriser.\nVitesse max augment\xE9 de 5, mais
+    acceleration diminu\xE9 de 3"
+  icon: {fileID: 21300000, guid: 042392473add44d0fb8453f3d8e75e88, type: 3}
   type: 5
   effect: {fileID: 11400000, guid: 7534dd628b5b64afd9511fd706388f5a, type: 2}

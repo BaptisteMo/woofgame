@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_IncreaseMaxSpeed
   m_EditorClassIdentifier: 
-  boostName: Increase 15 max speed
+  boostName: Bottes de Sleipnir
   price: 0
-  description: + 15 max speed
+  description: "Les sabots du cheval divin frappent la terre avec fr\xE9n\xE9sie.
+    Ta vitesse maximale bondit vers les hauteurs.\nAjout 15 vitesse Max"
+  icon: {fileID: 21300000, guid: cb4983d01750d4646807f1e785802302, type: 3}
   type: 4
   effect: {fileID: 11400000, guid: 2bf39afbff1434e009e4f45550c62392, type: 2}

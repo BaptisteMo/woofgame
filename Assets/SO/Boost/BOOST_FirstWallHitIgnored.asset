@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_FirstWallHitIgnored
   m_EditorClassIdentifier: 
-  boostName: "La r\xE9duction de vitesse est ignor\xE9 sur votre premi\xE8re collision
-    contre un mur"
+  boostName: "\xC9gide d\u2019Ath\xE9na"
   price: 0
-  description: 
+  description: "Le premier impact s\u2019\xE9crase contre un bouclier invisible.
+    La sagesse divine te prot\xE8ge\nLe premier choc du niveau est ignor\xE9"
+  icon: {fileID: 21300000, guid: 02edca027e74f474788f73b00cb5daa0, type: 3}
   type: 0
   effect: {fileID: 11400000, guid: 7c30640a697e8431ab42792a660b7905, type: 2}

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_Post collision acceleration boost
   m_EditorClassIdentifier: 
-  boostName: "Apr\xE8s une collision l'acceleration est augment\xE9 de 10 "
+  boostName: Courroux de Thor
   price: 0
-  description: 
+  description: "Subis l\u2019impact, embrasse la foudre. Apr\xE8s la chute, la rage
+    t\u2019emporte.\nApr\xE8s un choc + 10 d'acceleration pendant x temps"
+  icon: {fileID: 21300000, guid: 4495a0445dadb4fcc9f4f848de7976fa, type: 3}
   type: 5
   effect: {fileID: 11400000, guid: cc460e649a7224f4cb808c8ff78eab69, type: 2}

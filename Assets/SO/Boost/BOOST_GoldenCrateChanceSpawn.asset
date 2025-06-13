@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_GoldenCrateChanceSpawn
   m_EditorClassIdentifier: 
-  boostName: "5% de chance en plus d'avoir des caisses dor\xE9es"
+  boostName: Ombre de Ploutos
   price: 0
-  description: "5% de chance en plus d'avoir des caisses dor\xE9es"
+  description: "L\xE0 o\xF9 tu passes, les caisses brillent d\u2019or. Le dieu de
+    la richesse veille sur ta route.\nAugmente de 15% l'apparition des caisses dor\xE9es"
+  icon: {fileID: 21300000, guid: 989ae5bac1aec407ca21909bb57fabd5, type: 3}
   type: 6
   effect: {fileID: 11400000, guid: e313bbc8960304922a54c80c188d9fd8, type: 2}

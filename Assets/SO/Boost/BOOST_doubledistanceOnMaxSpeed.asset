@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7070f73493c8741a3ad8af7184a82236, type: 3}
   m_Name: BOOST_doubledistanceOnMaxSpeed
   m_EditorClassIdentifier: 
-  boostName: X2 dista on vitesse max
+  boostName: "Foul\xE9e d\u2019Herm\xE8s"
   price: 0
-  description: X2 dista on vitesse max
+  description: "Quand tes jambes rivalisent avec les dieux, chaque m\xE8tre compte
+    double. Cours comme Herm\xE8s, moissonne comme un roi.\nLa valeur de la distance
+    est multipli\xE9 par 2 lorsqu'on court en vitesse max"
+  icon: {fileID: 21300000, guid: b6834b5fec74c4f3d9f257c173fae4c1, type: 3}
   type: 3
   effect: {fileID: 11400000, guid: 97f3b4fb65aab4f6fac715d9e28cec72, type: 2}
