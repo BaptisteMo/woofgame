@@ -9,15 +9,16 @@ public class ShopManager : MonoBehaviour
     public List<BoostData> boostPool;
    [SerializeField] private int boostNumber;
    [SerializeField] private int consumableNumber;
-    
+    [SerializeField] private int cost;
 
     [Header("UI")]
     public ShopUI ui; 
     private List<ConsumableData> currentConsumables;
     private List<BoostData> currentBoosts;
   
+    private int rerollCount = 0;
 
-    public bool isAfterBoss = false;
+
 
     void Start()
     {
@@ -52,14 +53,55 @@ public class ShopManager : MonoBehaviour
         }
 
         ui.DisplayShop(currentBoosts, currentConsumables);
+        ui.UpdateRerollPriceUI(GetRerollCost());
+        GetRerollCost();
+
+    }
+    public void RemoveBoost(BoostData boost)
+    {
+        if (boostPool.Contains(boost))
+        {
+            boostPool.Remove(boost);
+            Debug.Log($"🧹 Boost retiré du pool : {boost.boostName}");
+        }
+
+        if (currentBoosts.Contains(boost))
+        {
+            currentBoosts.Remove(boost);
+            ui.DisplayShop(currentBoosts, currentConsumables); // refresh UI
+        }
     }
 
 
     public void RerollBoosts()
     {
-        if (GameSession.Instance.playerMoney < 20) return; // reroll coûte 20 par ex.
-        GameSession.Instance.playerMoney -= 20;
-        GenerateShop(); // regenère seulement les boosts ici dans la version propre
-    }
+        cost = GetRerollCost();
 
+        if (GameSession.Instance.playerMoney < cost)
+        {
+            Debug.Log("💸 Pas assez de monnaie pour un reroll !");
+            return;
+        }
+        if (GameSession.Instance.playerMoney < cost) return;
+        
+        GameSession.Instance.playerMoney -= cost;
+        rerollCount++;
+
+        GameSession.Instance.playerMoney -= cost;
+
+        currentBoosts = new List<BoostData>();
+        while (currentBoosts.Count < boostNumber)
+        {
+            var random = boostPool[Random.Range(0, boostPool.Count)];
+            if (!currentBoosts.Contains(random))
+                currentBoosts.Add(random);
+        }
+        ui.DisplayShop(currentBoosts, currentConsumables);
+        ui.UpdateMoneyUI();
+        ui.UpdateRerollPriceUI(GetRerollCost()); // 🔁 met à jour le bouton !
+    }
+    public int GetRerollCost()
+    {
+        return cost + rerollCount;
+    }
 }

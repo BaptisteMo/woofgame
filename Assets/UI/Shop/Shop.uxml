@@ -5,7 +5,7 @@
             <ui:VisualElement class="money-bar" style="justify-content: space-between; height: 80px;">
                 <ui:VisualElement style="flex-grow: 0; flex-direction: row;">
                     <ui:Button text="Prochain niveau" name="next-level" style="height: initial; width: 368px;" />
-                    <ui:Button text="Retry" name="retry" style="height: initial; text-overflow: ellipsis; width: 248px;" />
+                    <ui:Button text="Test" name="retry" style="height: initial; text-overflow: ellipsis; width: 248px;" />
                 </ui:VisualElement>
                 <ui:Label name="money-label" text="Monnaie : 0" class="money-label" />
             </ui:VisualElement>
@@ -15,7 +15,10 @@
                 <ui:ScrollView name="consumable-container" mode="Horizontal" class="baseContainer" style="flex-grow: 1;" />
             </ui:VisualElement>
             <ui:VisualElement class="section" style="flex-grow: 1;">
-                <ui:Label text="Boosts" class="section-title" style="font-size: 30px;" />
+                <ui:VisualElement style="flex-direction: row; justify-content: space-between;">
+                    <ui:Label text="Bonus" class="section-title" style="font-size: 30px;" />
+                    <ui:Button name="reroll-button"  style="margin-right: 10px;" />
+                </ui:VisualElement>
                 <ui:ScrollView name="boost-container" mode="Horizontal" class="baseContainer" style="flex-grow: 1;" />
             </ui:VisualElement>
         </ui:VisualElement>

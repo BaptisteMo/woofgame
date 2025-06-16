@@ -1,8 +1,11 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI/Shop/Shop.uss?fileID=7433441132597879392&amp;guid=a7f3af1dcf79d4240a07d653b177c4a9&amp;type=3#Shop" />
-    <ui:VisualElement class="card boost-card">
-        <ui:Label name="boost-name" text="Name" class="card-title" />
-        <ui:Label name="boost-description" text="Description" class="card-desc" />
+    <ui:VisualElement class="card boost-card" style="flex-grow: 1; width: auto; max-width: 300px;">
+        <ui:VisualElement style="flex-grow: 0; flex-direction: row;">
+            <ui:Image name="boost-icon" style="height: 80px; width: 80px; margin-right: 10px; flex-shrink: 1;" />
+            <ui:Label name="boost-name" text="Name" class="card-title" style="flex-grow: 1; -unity-text-align: middle-left;" />
+        </ui:VisualElement>
+        <ui:Label name="boost-description" text="Description" class="card-desc" style="white-space: normal;" />
         <ui:Label name="boost-price" text="Price" class="card-price" />
         <ui:Button name="buy-button" text="Acheter" class="buy-button" />
     </ui:VisualElement>
