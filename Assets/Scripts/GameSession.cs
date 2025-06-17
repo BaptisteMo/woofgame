@@ -1,6 +1,17 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
+public enum GameLevel
+{
+    Level_1_1,
+    Level_2,
+    Level_3,
+    Level_4,
+    Level_5
+}
+
 
 public class GameSession : MonoBehaviour
 {
@@ -20,7 +31,8 @@ public class GameSession : MonoBehaviour
     public float lastPlayerSpeed = 20f; // mis à jour en temps réel par le player
 
     [Header("Progression")]
-    public int currentLevel = 1;
+    [Header("Niveaux")]
+    public GameLevel currentLevel = GameLevel.Level_1_1;
     public string nextSceneName = "";
     public string RetryLevel = "";
     [Header("Bonus & Malus")] 
@@ -57,6 +69,11 @@ public class GameSession : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        AutoDetectCurrentLevel();
+    }
+
     void Update()
     {
         
@@ -68,12 +85,6 @@ public class GameSession : MonoBehaviour
         }
         
     }
-    public void ReloadCurrentScene()
-    {
-        Scene activeScene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(activeScene.name);
-    }
-
     public int wallHitCountTrack()
     {
         wallHitCount++;
@@ -86,7 +97,7 @@ public class GameSession : MonoBehaviour
         baseSpeed = 5f;
         maxSpeed = 20f;
         accelerationDuration = 15f;
-        currentLevel = 1;
+        currentLevel = GameLevel.Level_1_1;
         hasEnded = false;
         leftLaneGoldenCrateBonus = 0f;
         leftLaneNormalCrateBonus = 0f;
@@ -109,6 +120,50 @@ public class GameSession : MonoBehaviour
         maxSpeed += stat.speedBonus;
         accelerationDuration = Mathf.Max(1f, accelerationDuration - stat.accelerationBonus);
     }
+    // Définis ici ta progression linéaire
+    private Dictionary<GameLevel, GameLevel> levelProgression = new Dictionary<GameLevel, GameLevel>
+    {
+        { GameLevel.Level_1_1, GameLevel.Level_2 },
+        { GameLevel.Level_2, GameLevel.Level_3 },
+        { GameLevel.Level_3, GameLevel.Level_4 },
+        
+        // etc...
+    };
 
+    public string GetSceneName(GameLevel level)
+    {
+        return level.ToString(); // suppose que la scène s’appelle pareil que l'enum (ex : "Level1")
+    }
+
+    public GameLevel GetNextLevel()
+    {
+        return levelProgression.ContainsKey(currentLevel) ? levelProgression[currentLevel] : currentLevel;
+    }
+
+    public void AdvanceToNextLevel()
+    {
+        currentLevel = GetNextLevel();
+    }
+
+    public void ReloadCurrentScene()
+    {
+        SceneManager.LoadScene(GetSceneName(currentLevel));
+    }
+    public void AutoDetectCurrentLevel()
+    {
+        string currentSceneName = SceneManager.GetActiveScene().name;
+
+        foreach (GameLevel level in Enum.GetValues(typeof(GameLevel)))
+        {
+            if (level.ToString() == currentSceneName)
+            {
+                currentLevel = level;
+                Debug.Log($"✅ Niveau détecté automatiquement : {currentLevel}");
+                return;
+            }
+        }
+
+        Debug.LogWarning($"⚠️ Aucun niveau correspondant à la scène '{currentSceneName}' n’a été trouvé dans l'enum GameLevel.");
+    }
 
 }

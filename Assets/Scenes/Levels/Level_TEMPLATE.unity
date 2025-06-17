@@ -1240,7 +1240,14 @@ MonoBehaviour:
   leftLaneNormalCrateBonus: 0
   leftLaneGoldenCrateBonus: 0
   goldenCrateSpawnerChanceBonus: 0
+  wallHitReduced: 0
+  wallHitMalusReduced: 0.75
   wallHitMalus: 0.5
+  wallHitCount: 0
+  ignoreFirstCollision: 0
+  perfectRunMultiplier: 0
+  doubleAccelIfFastEnabled: 0
+  speedThresholdForDoubleAccel: 0
 --- !u!4 &162238330
 Transform:
   m_ObjectHideFlags: 0

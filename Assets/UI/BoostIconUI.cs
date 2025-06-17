@@ -1,8 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
-public class BoostIconUI : MonoBehaviour
+
+public class BoostIconUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Image iconImage;
     private BoostData boostData;
@@ -11,13 +13,17 @@ public class BoostIconUI : MonoBehaviour
     {
         boostData = data;
         iconImage.sprite = data.icon;
-
-        // ⚠️ Ajoute un listener s’il y a un bouton
-        GetComponent<Button>().onClick.AddListener(ShowDetails);
     }
 
-    public void ShowDetails()
+    // 👉 Appelé automatiquement quand la souris entre dans le champ du GameObject
+    public void OnPointerEnter(PointerEventData eventData)
     {
         BoostDetailsPanel.Instance.Show(boostData);
+    }
+
+    // 👉 Appelé quand la souris quitte le GameObject
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        BoostDetailsPanel.Instance.Hide(); // ou Clear()
     }
 }

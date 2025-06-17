@@ -14,7 +14,7 @@ public class ScoreManager : MonoBehaviour
 
     
     
-    public string nextLevel;
+    
     private float startZ;
     private float lastZ;
     private float distanceAccumulator = 0f;
@@ -40,6 +40,7 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         player = FindFirstObjectByType<PlayerMovement>();
+        endScreenPanel = FindInactiveObjectByName("FinishScreen");
         startZ = player.transform.position.z;
         lastZ = startZ;
         
@@ -147,12 +148,12 @@ public class ScoreManager : MonoBehaviour
 
     private void HandleWin()
     {
-        // Ajouter l’argent au joueur
-        //TODO
-        GameSession.Instance.nextSceneName = nextLevel;
-        // Charger la scène boutique après 1s
-        StartCoroutine(LoadSceneAfterDelay("Boutique", 3f));
+        GameSession.Instance.AdvanceToNextLevel();
+
+        string nextSceneName = "Boutique"; // ou une autre scène entre les niveaux
+        StartCoroutine(LoadSceneAfterDelay(nextSceneName, 3f));
     }
+
 
 
     private void HandleLose()
@@ -193,6 +194,20 @@ public class ScoreManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         victoryMessage.text = hasWon ? "Victoire !" : "Défaite...";
+    }
+    public static GameObject FindInactiveObjectByName(string name)
+    {
+        var allObjects = Resources.FindObjectsOfTypeAll<GameObject>();
+
+        foreach (var obj in allObjects)
+        {
+            if (obj.name == name && !obj.hideFlags.HasFlag(HideFlags.NotEditable) && !obj.hideFlags.HasFlag(HideFlags.HideAndDontSave))
+            {
+                return obj;
+            }
+        }
+
+        return null;
     }
 
 

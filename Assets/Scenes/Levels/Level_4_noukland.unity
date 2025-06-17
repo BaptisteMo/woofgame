@@ -2125,17 +2125,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
---- !u!114 &89918850 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8981866541514362911, guid: 84931a715829ee0489e0c77dfe398a4f, type: 3}
-  m_PrefabInstance: {fileID: 4606038977747582223}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 040acac44ca3249fcbaf6ae07c3f5fc6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &90165677 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6066330539339961678, guid: 51029126b68b44ff2b179dc6d6cd12a9, type: 3}
@@ -3203,17 +3192,32 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16a7a2c56eb0c470894904179a91816e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentStatUpThisLevel: {fileID: 0}
+  sceneToReset: 
   playerMoney: 0
   maxSpeed: 20
   baseSpeed: 5
   accelerationDuration: 15
+  lastPlayerSpeed: 20
   currentLevel: 1
   nextSceneName: 
   RetryLevel: 
+  adjacentLootCollectorEnabled: 0
+  lootGrantsSpeed: 0
+  lootSpeedBonusPercent: 10
   coinDropBonusPercent: 0
+  boostPowerMultiplier: 1
   doubleDistanceOnMaxSpeed: 0
+  leftLaneNormalCrateBonus: 0
+  leftLaneGoldenCrateBonus: 0
+  goldenCrateSpawnerChanceBonus: 0
+  wallHitReduced: 0
+  wallHitMalusReduced: 0.75
   wallHitMalus: 0.5
+  wallHitCount: 0
+  ignoreFirstCollision: 0
+  perfectRunMultiplier: 0
+  doubleAccelIfFastEnabled: 0
+  speedThresholdForDoubleAccel: 0
 --- !u!4 &162238330
 Transform:
   m_ObjectHideFlags: 0
@@ -37670,7 +37674,7 @@ MonoBehaviour:
   playerGold: {fileID: 0}
   distanceFinishScreen: {fileID: 0}
   speedFinishScreen: {fileID: 0}
-  player: {fileID: 89918850}
+  player: {fileID: 0}
 --- !u!4 &1681325759
 Transform:
   m_ObjectHideFlags: 0

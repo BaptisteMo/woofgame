@@ -114,7 +114,8 @@ public class ShopUI : MonoBehaviour
 
     public void OnClick_Continuer(ClickEvent evt)
     {
-        string nextScene = GameSession.Instance.nextSceneName;
+        string nextScene = GameSession.Instance.GetSceneName(GameSession.Instance.currentLevel);
+        SceneManager.LoadScene(nextScene);
 
         if (!string.IsNullOrEmpty(nextScene))
         {

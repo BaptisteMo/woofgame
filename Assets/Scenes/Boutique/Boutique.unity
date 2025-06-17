@@ -273,7 +273,7 @@ MonoBehaviour:
   accelerationDuration: 15
   lastPlayerSpeed: 20
   currentLevel: 1
-  nextSceneName: Level_1_noukland
+  nextSceneName: Level_2
   RetryLevel: Level_1_noukistan
   adjacentLootCollectorEnabled: 0
   lootGrantsSpeed: 0

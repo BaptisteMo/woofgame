@@ -163,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.CompareTag("DeathWall"))
         {
-            GameSession.Instance.TriggerRunEnd();
+            GameSession.Instance.ReloadCurrentScene();
         }
         if (collision.gameObject.CompareTag("Wall"))
         {
