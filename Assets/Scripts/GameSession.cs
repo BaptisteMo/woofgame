@@ -9,7 +9,8 @@ public enum GameLevel
     Level_2,
     Level_3,
     Level_4,
-    Level_5
+    Level_5,
+    Level_1_V2
 }
 
 
