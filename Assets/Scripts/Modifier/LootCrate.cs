@@ -83,6 +83,8 @@ public class LootCrate : MonoBehaviour
         {
             GameSession.Instance.playerMoney += coinReward;
             Debug.Log($"💰 Caisse lootée ! ({finalChance}%)");
+            ShowTextManager.Instance.GoldUp(coinReward, playerTransform);
+
         }
         else
         {

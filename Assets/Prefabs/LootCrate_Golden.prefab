@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c519e26b2f1e84cbc9653dfc77b75931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDropChance: 50
+  baseDropChance: 100
   coinReward: 5
   attractionRadius: 17
   magnetSpeedMultiplier: 2
