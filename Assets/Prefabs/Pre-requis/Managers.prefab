@@ -57,6 +57,9 @@ MonoBehaviour:
   playerGold: {fileID: 0}
   distanceFinishScreen: {fileID: 0}
   speedFinishScreen: {fileID: 0}
+  goldBaseGain: {fileID: 0}
+  goldInterest: {fileID: 0}
+  goldTotalGain: {fileID: 0}
   player: {fileID: 0}
 --- !u!1 &2001472540321491495
 GameObject:
@@ -88,10 +91,10 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1407290436159686361}
-  - {fileID: 951988316612747711}
+  - {fileID: 7480772341086041661}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &3496350990595206881
+--- !u!1 &3738218304051916085
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -99,22 +102,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 951988316612747711}
-  - component: {fileID: 2187237988019433552}
+  - component: {fileID: 7480772341086041661}
+  - component: {fileID: 96937591673055266}
   m_Layer: 0
-  m_Name: ShowTextManager
+  m_Name: StartCountDownManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &951988316612747711
+--- !u!4 &7480772341086041661
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3496350990595206881}
+  m_GameObject: {fileID: 3738218304051916085}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -123,16 +126,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 5556880848541064941}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2187237988019433552
+--- !u!114 &96937591673055266
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3496350990595206881}
+  m_GameObject: {fileID: 3738218304051916085}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4d5d2ff80c8e487fa87e5e18eec6243, type: 3}
+  m_Script: {fileID: 11500000, guid: 304f25c91cad47e39cf35c9ea83a8ed1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageTextPrefab: {fileID: 934115558795713261, guid: 98aa1f4fca13842a3b65cd6ebd727695, type: 3}
+  countdownPanel: {fileID: 0}
+  countdownText: {fileID: 0}
+  countdownDelay: 1
+  popScale: {x: 1.5, y: 1.5, z: 1}
+  popDuration: 0.2

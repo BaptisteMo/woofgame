@@ -31,6 +31,12 @@ public class GameSession : MonoBehaviour
     public float accelerationDuration = 15f;
     public float lastPlayerSpeed = 20f; // mis à jour en temps réel par le player
 
+    [Header("Reward System")]
+    public int winReward = 10;
+    public int interestDivider = 5; // Z
+    public int maxInterestReward = 5;
+
+    
     [Header("Progression")]
     [Header("Niveaux")]
     public GameLevel currentLevel = GameLevel.Level_1_1;

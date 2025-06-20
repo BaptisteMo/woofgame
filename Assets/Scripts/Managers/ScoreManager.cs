@@ -33,6 +33,13 @@ public class ScoreManager : MonoBehaviour
     public TextMeshProUGUI distanceFinishScreen;
     public TextMeshProUGUI speedFinishScreen;
 
+    public TextMeshProUGUI goldBaseGain;
+    public TextMeshProUGUI goldInterest;
+    public TextMeshProUGUI goldTotalGain;
+
+    private GameObject continueButtonObj;
+    private GameObject retryButtonObj;
+
      [SerializeField] private PlayerMovement player;
     private float traveled;
 
@@ -49,12 +56,23 @@ public class ScoreManager : MonoBehaviour
         playerGold = FindTextByName("PlayerGold");
         
         var endScreen = transform.Find("UI_Level/FinishScreen");
+        goldBaseGain = FindTextByName("GoldBaseGain");
+        goldInterest = FindTextByName("GoldInterest");
+        goldTotalGain = FindTextByName("GoldTotalGain");
+
 
         distanceFinishScreen = FindTextByName("DistanceFinishScreen");
         speedFinishScreen = FindTextByName("SpeedFinishScreen");
         resultText = FindTextByName("FinalResult");
         requiredScore = FindTextByName("Requis");
         victoryMessage = FindTextByName("Victorytext");
+
+        continueButtonObj = FindInactiveObjectByName("ContinueButton");
+        retryButtonObj = FindInactiveObjectByName("RetryButton");
+
+// On s'assure qu’ils sont désactivés au lancement
+        continueButtonObj.SetActive(false);
+        retryButtonObj.SetActive(false);
 
     }
 
@@ -135,6 +153,9 @@ public class ScoreManager : MonoBehaviour
         bool hasWon = finalScore >= scoreToWin;
 
         ShowEndScreen(finalScore, hasWon);
+        goldBaseGain.text = 0.ToString();
+        goldInterest.text = 0.ToString();
+        goldTotalGain.text = 0.ToString();
         distanceFinishScreen.text = finalDistance.ToString("F1");
         speedFinishScreen.text = speedUsed.ToString("F1");
 
@@ -148,20 +169,61 @@ public class ScoreManager : MonoBehaviour
 
     private void HandleWin()
     {
+        int baseReward = GameSession.Instance.winReward;
+
+        int goldBefore = GameSession.Instance.playerMoney;
+        int interest = Mathf.FloorToInt(goldBefore / (float)GameSession.Instance.interestDivider);
+        interest = Mathf.Min(interest, GameSession.Instance.maxInterestReward);
+
+        int totalEarned = baseReward + interest;
+
+        GameSession.Instance.playerMoney += totalEarned;
+
+        Debug.Log($"🏆 Réussite ! Gain : +{baseReward}g | Intérêts : +{interest}g => Total : +{totalEarned}g");
+
+        // Affiche l’écran de victoire + animation
+        ShowGoldGain(baseReward, interest, totalEarned);
+
         GameSession.Instance.AdvanceToNextLevel();
-
-        string nextSceneName = "Boutique"; // ou une autre scène entre les niveaux
-        StartCoroutine(LoadSceneAfterDelay(nextSceneName, 3f));
+        
+        // 🔘 Activer le bouton continuer
+        continueButtonObj.SetActive(true);
+        continueButtonObj.GetComponent<UnityEngine.UI.Button>().onClick.RemoveAllListeners();
+        continueButtonObj.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Boutique");
+        });
     }
-
+    
+    private void ShowGoldGain(int baseReward, int interest, int total)
+    {
+        
+        StartCoroutine(AnimateGoldGainSequence(baseReward, interest, total));
+    }
+    private IEnumerator AnimateGoldGainSequence(int baseReward, int interest, int total)
+    {
+        yield return StartCoroutine(AnimateGoldGain(goldBaseGain, baseReward, 1));
+        if (interest > 0)
+        {
+         yield return StartCoroutine(AnimateGoldGain(goldInterest, interest, 1));
+        }
+        yield return StartCoroutine(AnimateGoldGain(goldTotalGain, total, 1));
+    }
 
 
     private void HandleLose()
     {
         GameSession.Instance.ResetSession();
-        StartCoroutine(LoadSceneAfterDelay("MainMenu", 3f));
+
+        // 🔘 Activer le bouton recommencer
+        retryButtonObj.SetActive(true);
+        retryButtonObj.GetComponent<UnityEngine.UI.Button>().onClick.RemoveAllListeners();
+        retryButtonObj.GetComponent<UnityEngine.UI.Button>().onClick.AddListener(() =>
+        {
+            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+        });
     }
-    
+
     private IEnumerator LoadSceneAfterDelay(string sceneName, float delay)
     {
         yield return new WaitForSeconds(delay);
@@ -195,6 +257,24 @@ public class ScoreManager : MonoBehaviour
 
         victoryMessage.text = hasWon ? "Victoire !" : "Défaite...";
     }
+    
+    private IEnumerator AnimateGoldGain(TextMeshProUGUI label, int finalValue, int AnimDuration)
+    {
+        float elapsed = 0f;
+        int displayedValue = 0;
+
+        while (elapsed < AnimDuration)
+        {
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / AnimDuration);
+            displayedValue = Mathf.RoundToInt(Mathf.Lerp(0, finalValue, t));
+            label.text = $"+{displayedValue}g";
+            yield return null;
+        }
+
+        label.text = $"+{finalValue}g";
+    }
+
     public static GameObject FindInactiveObjectByName(string name)
     {
         var allObjects = Resources.FindObjectsOfTypeAll<GameObject>();
